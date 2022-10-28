@@ -1,0 +1,488 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #333333;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* 헤더 메인 푸터 쌓아올리기 */
+}
+
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.container {
+  width: 1060px; /* 컨테이너 기준 너비 */
+  display: flex;
+}
+/* main 메인 */
+.main {
+  flex-grow: 1; /* 헤더와 푸터 사이에 메인 꽉 차도록 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: yellowgreen; */
+  padding-top: 50px; /* 헤더에 fixed 속성을 주면 그 높이만큼 padding top을 주어야 한다 */
+}
+/* 1번째 커리어 인사이트 섹션 */
+.careerSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.careerWrapper {
+  width: 1060px;
+  border-bottom: 1px solid #c6c8ca;
+}
+.titleContainer {
+  display: flex;
+  justify-content: center;
+}
+.titleContainer h2 {
+  font-size: 20px;
+  font-weight: 900;
+}
+.question-button {
+  margin-left: 10px;
+  font-size: 23px;
+}
+.listContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+.list-button {
+  display: flex;
+  padding: 9px 24px;
+  font-weight: 800;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #888;
+  border: 1px solid #c6c8ca;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 0 2.5px;
+  transition: background 0.4s ease-in-out;
+}
+.list-button:hover {
+  background-color: rgb(230, 224, 224, 0.9);
+}
+.contentContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.careerContentItem {
+  width: 250px;
+  margin-bottom: 35px;
+}
+.careerCardThumbnail img {
+  width: 100%;
+  height: 175px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.careerCardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  margin: 8px 0px;
+  text-align: left;
+  -webkit-line-clamp: 2; /* 2줄까지 출력되고 ... 으로 표시 */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.CareerCardContent {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 21px;
+  margin: 8px 0px;
+  color: rgb(156, 155, 155);
+  -webkit-line-clamp: 2; /* 2줄까지 출력되고 ... 으로 표시 */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.CareerCardInfo {
+  display: flex;
+  text-align: center;
+  margin-left: 8px 0px;
+}
+.CareerCardInfo > img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%; /* 원형 */
+  border: 1px solid #ececec;
+}
+.CareerCardInfo > p {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 21px;
+  color: rgb(156, 155, 155);
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.careerMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px;
+}
+.careerMore {
+  height: 50px;
+  font-size: 15px;
+  background-color: #ffffff;
+  font-weight: 700;
+  border: 1px solid #c6c8ca;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 15px 100px;
+}
+.careerMore__icon {
+  margin-left: 10px;
+}
+/* 두번째 섹션(아티클 섹션) */
+.articleSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.articleWrapper {
+  width: 1060px;
+  padding: 60px 0;
+}
+.subtitleContainer {
+  display: flex;
+  color: #767676;
+  margin-top: 5px;
+  font-weight: 700;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.articleContentItem {
+  width: 250px;
+}
+.cardHashtag {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #676767;
+  font-weight: 700;
+  text-align: left;
+}
+/* vod 섹션 */
+.vodSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #c6c8ca;
+  align-items: center;
+}
+.vodWrapper {
+  width: 1060px;
+  padding: 60px 0;
+}
+.careerCardName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #676767;
+}
+.card__sub {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 21px;
+  margin: 8px 0px;
+  color: rgb(156, 155, 155);
+}
+/* 콘텐츠 추천 버튼 섹션 */
+.recommendSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recommendBtn {
+  width: 1140px;
+  height: 65px;
+  background-image: linear-gradient(
+    102deg,
+    #2f5fef -127%,
+    #046afe 50%,
+    #00d2dd 145%
+  );
+  cursor: pointer;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 24px;
+}
+
+/* 맞춤 이벤트 섹션 */
+.eventSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eventWrapper {
+  width: 1060px;
+  padding: 60px 0;
+}
+.eventContentItem {
+  width: 522px;
+}
+.eventCardThumbnail img {
+  width: 100%;
+  height: 273px;
+}
+.onOffKind {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 2px;
+  background-color: black;
+  padding: 1px 6px;
+  color: white;
+}
+.eventKind {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 2px;
+  border: 1px solid grey;
+  padding: 1px 6px;
+}
+.eventTitle {
+  margin: 6px 0px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #333;
+  text-align: left;
+}
+.eventInfo {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(186, 181, 181);
+}
+/* 구독해야하는 이유 구독 섹션 */
+.subscribeSection {
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(208, 201, 201, 0.3);
+}
+.subscribeContainer {
+  display: flex;
+  width: 1060px;
+  justify-content: space-around;
+}
+.subscribeItem {
+  height: 158px;
+}
+.subscribeItem img {
+  width: 90%;
+  height: 100%;
+}
+.subscribeItem:first-child {
+  width: 510px;
+}
+.subscribeItem:last-child {
+  width: 540px;
+  text-align: center;
+}
+.subscribeTitleContainer {
+  margin-top: 20px;
+}
+.subscribeLogo {
+  font-size: 28px;
+  font-weight: bold;
+}
+.subscribeTitle {
+  font-size: 25px;
+  font-weight: 800;
+}
+.subscribeContent {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(123, 121, 121);
+  margin-top: 10px;
+}
+.subscribeBtn {
+  background-image: linear-gradient(
+    102deg,
+    #2f5fef -127%,
+    #046afe 50%,
+    #00d2dd 145%
+  );
+  color: #f8f8fa;
+  margin-top: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 25px;
+  padding: 15px 50px;
+}
+/* 채용 정보 퀵 매뉴 섹션 */
+.recruitMenuSection {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #c6c8ca;
+  align-items: center;
+}
+.quickMenuWrapper {
+  width: 1060px;
+  padding: 60px 0;
+}
+.quickTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+.quickMenuContainer {
+  display: flex;
+}
+.quickItem {
+  border: 1px solid #dcdfe2;
+  text-align: center;
+  flex-grow: 1; /*몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 원래의 크기보다 커지며 빈 공간을 메우게 된다*/
+  height: 100px;
+  padding-top: 10px;
+}
+.quickIcon {
+  margin: 15px 0px;
+  font-size: 27px;
+}
+.quickMenu {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 700;
+}

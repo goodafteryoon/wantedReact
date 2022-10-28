@@ -1,0 +1,63 @@
+/* header */
+.header {
+  display: flex;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  justify-content: center; /*네비바 가운데로*/
+  z-index: 10; /* 헤더가 최상위로 보이도록 */
+  border-bottom: 1px solid #e1e2e3;
+}
+.headerWrapper {
+  width: 1060px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerNavItem {
+  display: flex;
+  align-items: center;
+}
+
+.headerNavTitle {
+  font-size: 18px;
+  font-weight: 900;
+  margin-left: 15px;
+}
+
+.headerNavList {
+  padding: 0px 10px;
+  margin: 0 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.headerNavSup {
+  position: absolute;
+  top: 8px;
+  font-size: 8px;
+  font-weight: 300;
+  color: blue;
+}
+.headerAsideList {
+  font-size: 13px;
+  font-weight: 600;
+}
+.headerAsideList:nth-child(2) {
+  padding-left: 20px;
+}
+.headerAsideList:nth-child(3) {
+  padding: 0 25px;
+}
+.headerDashboardBtn {
+  font-size: 12px;
+  font-weight: 600;
+  color: #adaaaa;
+  padding: 6px 10px;
+  background-color: #ffffff;
+  border: 1px solid #c6c8ca;
+  border-radius: 25px;
+  transition: background 0.4s ease-in-out;
+}
