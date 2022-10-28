@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/* reset 및 초기값 */
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #333333;
+}
+.page {
+  /* width: 100vw; */ /* 이걸 없애니까 좌우 스크롤이 사라졌다.. */
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* 헤더 메인 푸터 쌓아올리기 */
+}
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.container {
+  width: 1060px; /* 컨테이너 기준 너비 */
+  display: flex;
+  /* border: 1px solid green; */
+}
+
+/* main */
+.main {
+  flex-grow: 1; /* 헤더와 푸터 사이에 메인 꽉 차도록 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* background-color: yellowgreen; */
+  padding-top: 50px; /* 헤더에 fixed 속성을 주면 그 높이만큼 padding top을 주어야 한다 */
+}
+.jobSearchSection {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid blue; */
+}
+.jobListSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* 서치 섹션 이후로 메인 꽉 차도록 */
+  /* background-color: skyblue; */
+}
+.filterContainer {
+  width: 1060px; /* 컨테이너 기준 너비 */
+  height: 100%;
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  /* padding: 30px 0; */
+}
+.filterContainer .container {
+  /* padding: 25px 0; */
+  /* border: 1px solid blue; */
+}
+/* 1번째 filterItem*/
+.filterContainer .container:first-child {
+  align-items: center;
+  height: 40%;
+}
+.filterContainer .container:nth-child(2) {
+  height: 30%;
+  justify-content: space-between;
+  border-bottom: 2px solid #e1e2e3;
+}
+.filterContainer .container:nth-child(3) {
+  height: 30%;
+  align-items: center;
+  justify-content: space-between;
+}
+.moreButton {
+  top: -4px;
+  position: relative;
+}
+.buttonWrapper {
+  border-right: 3px solid #ececec;
+}
+.inputWrapper {
+  padding-left: 20px;
+}
+
+.jobGroup {
+  padding-top: 3px;
+  margin-right: 15.5px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: #333;
+}
+.moreButton {
+  position: relative;
+  border: 1px solid #e1e2e3;
+  border-radius: 9999px;
+  background-color: #fff;
+  font-size: 9px;
+  padding: 8px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -ms-flex-negative: 0;
+  margin-right: 20px;
+  /* flex-shrink: 0; */
+}
+.input {
+  padding-top: 3px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 400;
+  color: #aaa;
+}
+/* 2번째 filterItem*/
+.selectWrapper {
+  display: flex;
+  /* border: 1px solid green; */
+  /* align-items: center; */
+  justify-content: space-between;
+}
+.categoryWrapper {
+  display: flex;
+  /* border: 1px solid green; */
+  justify-content: flex-end;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+}
+
+.localSelect,
+.yearSelect,
+.skillSelect,
+.categorySelect {
+  display: inline-flex;
+  height: 40px;
+  padding: 0 15px !important;
+  margin-bottom: 0;
+  border-radius: 5px;
+  border: 1px solid #ececec;
+  position: relative;
+  align-items: center;
+  margin-right: 10px; /* 추후에 없애기 등록순 버튼 만들고 */
+}
+.localSelect,
+.yearSelect,
+.skillSelect,
+.categorySelect {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: #333;
+  white-space: nowrap;
+}
+.local,
+.year {
+  margin-right: 10px;
+}
+.korea,
+.whole {
+  color: #36f !important;
+  font-weight: 600;
+  margin-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skill,
+.category {
+  margin-right: 5px;
+}
+.localSup {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  background-color: #36f;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 7px;
+  z-index: 1;
+}
+/* 3번째 filterItem */
+.tagButton {
+  font-size: 13px;
+  font-weight: 400;
+  background: rgb(242, 251, 245);
+  height: 32px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  line-height: 16px;
+  align-items: center;
+  margin-right: 8px;
+}
+.tagButton:nth-child(1) {
+  background: rgb(242, 251, 245);
+}
+.tagButton:nth-child(2) {
+  background: rgb(243, 249, 254);
+}
+.tagButton:nth-child(3) {
+  background: rgb(243, 249, 254);
+}
+.tagButton:nth-child(4) {
+  background: rgb(246, 248, 238);
+}
+.tagButton:nth-child(5) {
+  background: rgb(247, 242, 249);
+}
+.tagButton:nth-child(6) {
+  background: rgb(238, 250, 249);
+}
+.tagButton:nth-child(7) {
+  background: rgb(239, 241, 251);
+}
+.tagButton img {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* jobList 섹션 */
+.jobListSection {
+  padding-top: 20px;
+  border-top: 1px solid #e1e2e3;
+  /* border: 1px solid gold; */
+}
+.bookmarkContainer {
+  width: 1060px; /* 컨테이너 기준 너비 */
+  display: flex;
+  /* border: 1px solid green; */
+  padding-top: 15px;
+}
+.bookmarkTitle {
+  color: blue;
+  font-size: 15px;
+  font-weight: 600;
+  /* line-height: 24px; */
+}
+.bookmarkIcon {
+  vertical-align: middle;
+  margin-right: 8px;
+  color: blue;
+}
+.jobListContainer {
+  width: 1060px;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: space-between; */
+  /* background-color: grey; */
+}
+.jobListItem {
+  /* border: 1px solid red; */
+  width: 24%;
+  padding: 15px 0;
+  /* padding: 10px; */
+
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  color: #333;
+  font-weight: 600;
+  /* min-height: ; */
+}
+.cardHeader > img {
+  width: 100%;
+  height: 180px;
+  /* min-height: 60px; */
+  border-radius: 5px;
+}
+.cardPosition {
+  position: relative;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600; /* 추후에 font-weight 하나로 묶기 */
+  line-height: 1.2;
+  /* max-height: 2.4em; */
+  overflow: hidden;
+  text-align: left;
+  word-break: break-word;
+  padding-top: 14px;
+  /* border: 1px solid blue; */
+}
+.cardCompany {
+  font-size: 14px;
+  line-height: normal;
+  text-align: left;
+  word-break: break-word;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.cardReponse > span {
+  border: 1px solid #00aead;
+  color: #00aead;
+  border-radius: 2px;
+  background-color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  height: 19px;
+  line-height: 19px;
+  margin-top: 4px;
+  padding: 0 5px;
+}
+.cardLocation {
+  font-weight: 400;
+  color: #999;
+  font-size: 14px;
+  line-height: normal;
+  text-align: left;
+  word-break: break-word;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.addressDot {
+  margin: 0 3px;
+  top: -4px;
+  position: relative;
+}
+.cardReward {
+  margin-top: 10px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  word-break: break-word;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

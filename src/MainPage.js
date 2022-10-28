@@ -467,7 +467,7 @@ function MainPage() {
                 <span className="subscribeIcon">
                   <FontAwesomeIcon icon={faCheck} />
                 </span>
-                <span>첫 구독 0원 시작하기</span>
+                <span>&nbsp;첫 구독 0원 시작하기</span>
               </button>
             </div>
             <div className="subscribeItem">

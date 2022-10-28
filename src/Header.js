@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
+import SignUpModal from "./SignUpModal";
 
+// 모달을 노출하는 헤더 컴포넌트
 function Header() {
+  // 모달창 노출 여부 state
+
+  const [signUpOpen, setSignUpOpen] = useState(false);
+
   return (
     <>
       <div className="header">
@@ -53,10 +61,15 @@ function Header() {
           </div>
           <div className="headerNavItem">
             <div className="headerAsideList">
-              <i className="fa-solid fa-magnifying-glass fa-lg"></i>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
             </div>
             <div className="headerAsideList">
-              <button type="button" className="signUpButton" id="signUpBtn">
+              <button
+                onClick={() => setSignUpOpen(true)}
+                type="button"
+                className="signUpButton"
+                id="signUpBtn"
+              >
                 회원가입/로그인
               </button>
             </div>
@@ -69,6 +82,7 @@ function Header() {
           </div>
         </div>
       </div>
+      <SignUpModal signUpOpens={signUpOpen} setSignUpOpens={setSignUpOpen} />
     </>
   );
 }

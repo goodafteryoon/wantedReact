@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  border-top: 1px solid #c6c8ca;
 }
 .footerWrapper {
   width: 1060px;
