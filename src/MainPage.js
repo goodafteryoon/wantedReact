@@ -10,7 +10,6 @@ function MainPage() {
       <Header />
       <div className="main">
         <TopBannerSlide />
-
         <div className="careerSection">
           <div className="careerWrapper">
             <div className="titleContainer">
