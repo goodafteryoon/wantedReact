@@ -28,12 +28,7 @@
   cursor: pointer;
   margin: 0 150px;
 }
-.prev-arrow {
-  left: 0;
-}
-.next-arrow {
-  right: 0;
-}
+
 .information {
   white-space: nowrap; /* 왜 넣었지 */
   width: 330px;
@@ -51,15 +46,19 @@
   font-size: 18px;
   font-weight: 900;
   color: #333;
+  margin-bottom: 10px;
 }
 .information h3 {
   font-size: 13px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 .information span {
   font-weight: 600;
   font-size: 14px;
   color: blue;
+  position: absolute;
+  bottom: 20px;
 }
 .searchPosition {
   width: 100%;
@@ -82,16 +81,10 @@
 .searchPosition__icon {
   padding: 0 10px;
 }
-.slick-prev::before {
-  left: 0;
-}
-.slick-next:before {
-  right: 0;
-}
 
-.slick-prev:before,
+/* .slick-prev:before,
 .slick-next:before {
-  display: flex; /* 이미지 방향키 */
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -108,4 +101,4 @@
   border: none;
   cursor: pointer;
   margin: 0 20px;
-}
+} */

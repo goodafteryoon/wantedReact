@@ -3,6 +3,16 @@ import "./MainPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import TopBannerSlide from "./TopBannerSlide";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleQuestion, faUser } from "@fortawesome/free-regular-svg-icons";
+import {
+  faChevronDown,
+  faChevronRight,
+  faCheck,
+  faMagnifyingGlass,
+  faBuilding,
+  faSliders,
+} from "@fortawesome/free-solid-svg-icons";
 
 function MainPage() {
   return (
@@ -14,8 +24,8 @@ function MainPage() {
           <div className="careerWrapper">
             <div className="titleContainer">
               <h2>나에게 필요한 커리어 인사이트</h2>
-              <button className="question-button" type="button">
-                <i className="fa-regular fa-circle-question" opacity="0.4"></i>
+              <button className="questionButton" type="button">
+                <FontAwesomeIcon icon={faCircleQuestion} opacity="0.4" />
               </button>
             </div>
             <div className="listContainer">
@@ -246,7 +256,7 @@ function MainPage() {
               <button className="careerMore">
                 <span className="careerMore__button">더 많은 콘텐츠 보기</span>
                 <span className="careerMore__icon">
-                  <i className="fa-solid fa-chevron-down"></i>
+                  <FontAwesomeIcon icon={faChevronDown} />
                 </span>
               </button>
             </div>
@@ -260,7 +270,7 @@ function MainPage() {
             <div className="subtitleContainer">
               <span className="article_title">아티클 전체보기</span>
               <span className="article_icon">
-                <i className="fa-solid fa-chevron-right"></i>
+                <FontAwesomeIcon icon={faChevronRight} />
               </span>
             </div>
             <div className="contentContainer">
@@ -331,7 +341,7 @@ function MainPage() {
             <div className="subtitleContainer">
               <span className="article_title">VOD 전체보기</span>
               <span className="article_icon">
-                <i className="fa-solid fa-chevron-right"></i>
+                <FontAwesomeIcon icon={faChevronRight} />
               </span>
             </div>
             <div className="contentContainer">
@@ -415,7 +425,7 @@ function MainPage() {
             <div className="subtitleContainer">
               <span className="article_title">이벤트 전체보기</span>
               <span className="article_icon">
-                <i className="fa-solid fa-chevron-right"></i>
+                <FontAwesomeIcon icon={faChevronRight} />
               </span>
             </div>
             <div className="contentContainer">
@@ -455,7 +465,7 @@ function MainPage() {
               </div>
               <button className="subscribeBtn">
                 <span className="subscribeIcon">
-                  <i className="fa-solid fa-check"></i>
+                  <FontAwesomeIcon icon={faCheck} />
                 </span>
                 <span>첫 구독 0원 시작하기</span>
               </button>
@@ -473,45 +483,45 @@ function MainPage() {
             <div className="quickMenuContainer">
               <div className="quickItem">
                 <div className="quickIcon">
-                  <i className="fa-solid fa-magnifying-glass"></i>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </div>
                 <div className="quickMenu">
                   채용공고
                   <span>
-                    <i className="fa-solid fa-chevron-right"></i>
+                    <FontAwesomeIcon icon={faChevronRight} />
                   </span>
                 </div>
               </div>
               <div className="quickItem">
                 <div className="quickIcon">
-                  <i className="fa-regular fa-user"></i>
+                  <FontAwesomeIcon icon={faUser} />
                 </div>
                 <div className="quickMenu">
                   내 프로필
                   <span>
-                    <i className="fa-solid fa-chevron-right"></i>
+                    <FontAwesomeIcon icon={faChevronRight} />
                   </span>
                 </div>
               </div>
               <div className="quickItem">
                 <div className="quickIcon">
-                  <i className="fa-regular fa-building"></i>
+                  <FontAwesomeIcon icon={faBuilding} />
                 </div>
                 <div className="quickMenu">
                   매치업
                   <span>
-                    <i className="fa-solid fa-chevron-right"></i>
+                    <FontAwesomeIcon icon={faChevronRight} />
                   </span>
                 </div>
               </div>
               <div className="quickItem">
                 <div className="quickIcon">
-                  <i className="fa-solid fa-sliders"></i>
+                  <FontAwesomeIcon icon={faSliders} />
                 </div>
                 <div className="quickMenu">
                   직군별 연봉
                   <span>
-                    <i className="fa-solid fa-chevron-right"></i>
+                    <FontAwesomeIcon icon={faChevronRight} />
                   </span>
                 </div>
               </div>
