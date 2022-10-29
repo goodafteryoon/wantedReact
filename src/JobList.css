@@ -59,6 +59,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #e1e2e3;
   /* border: 2px solid blue; */
 }
 
@@ -82,7 +83,7 @@ button {
 .filterContainer .container:nth-child(2) {
   height: 30%;
   justify-content: space-between;
-  border-bottom: 2px solid #e1e2e3;
+  border-bottom: 2px solid #f0f1f3;
 }
 .filterContainer .container:nth-child(3) {
   height: 30%;
@@ -243,8 +244,7 @@ button {
 
 /* jobList 섹션 */
 .jobListSection {
-  padding-top: 20px;
-  border-top: 1px solid #e1e2e3;
+  padding: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: column;

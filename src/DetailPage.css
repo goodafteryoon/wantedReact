@@ -337,3 +337,15 @@
   border: 1px solid #e1e2e3;
   z-index: 100;
 } */
+.jobAssociatedWrapper {
+  padding: 60px 0;
+  /* border: 2px solid green; */
+}
+.jobAssociatedTitle {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  line-height: normal;
+  /* border: 2px solid black; */
+}

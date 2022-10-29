@@ -11,7 +11,7 @@ function JobCard({
   reward,
 }) {
   return (
-    <div className="jobListItem">
+    <div className="jobCardItem">
       <div className="cardHeader">
         <img alt="" src={img} />
       </div>

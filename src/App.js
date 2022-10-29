@@ -7,7 +7,7 @@ import JobList from "./JobList";
 function App() {
   return (
     <div className="page">
-      <JobList />
+      <DetailPage />
     </div>
   );
 }
