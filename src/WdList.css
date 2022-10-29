@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
 /* reset 및 초기값 */
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   color: #333333;
 }
 .page {
@@ -322,6 +322,7 @@ button {
   white-space: nowrap;
   overflow: hidden;
   margin-top: 10px;
+  margin-bottom: 1px;
 }
 .cardReponse > span {
   border: 1px solid #00aead;
@@ -338,7 +339,7 @@ button {
 .cardLocation {
   font-weight: 400;
   color: #999;
-  font-size: 14px;
+  font-size: 13px;
   line-height: normal;
   text-align: left;
   word-break: break-word;
@@ -356,8 +357,8 @@ button {
 .cardReward {
   margin-top: 10px;
   color: #333;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   text-align: left;
   word-break: break-word;
   width: 100%;
