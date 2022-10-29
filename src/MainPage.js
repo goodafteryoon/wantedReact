@@ -30,6 +30,63 @@ function CareerCard({ img, imgAlt, title, content, icon, iconAlt, author }) {
   );
 }
 
+function ArticleCard({ img, imgAlt, title, tag }) {
+  return (
+    <div className="articleContentItem">
+      <div className="careerCardThumbnail">
+        <img src={img} alt={imgAlt} />
+      </div>
+      <p className="careerCardTitle">{title}</p>
+      <p className="cardHashtag">{tag}</p>
+    </div>
+  );
+}
+
+function VodCard({ img, imgAlt, author, title, subTitle }) {
+  return (
+    <div className="articleContentItem">
+      <div className="careerCardThumbnail">
+        <img src={img} alt={imgAlt} />
+      </div>
+      <p className="careerCardName">{author}</p>
+      <p className="careerCardTitle">{title}</p>
+      <p className="card__sub">{subTitle}</p>
+    </div>
+  );
+}
+
+function EventCard({ img, kind, title, onOff, info }) {
+  return (
+    <div className="eventContentItem">
+      <div className="eventCardThumbnail">
+        <img src={img} alt="" />
+      </div>
+      <div className="eventItem_content">
+        <span className="onOffKind">{onOff}</span>
+        <span className="eventKind">{kind}</span>
+        <p className="eventTitle">{title}</p>
+        <p className="eventInfo">{info}</p>
+      </div>
+    </div>
+  );
+}
+
+function QuickBtn(icon, name) {
+  return (
+    <div className="quickItem">
+      <div className="quickIcon">
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <div className="quickMenu">
+        {name}
+        <span>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function MainPage() {
   return (
     <>
@@ -202,62 +259,30 @@ function MainPage() {
               </span>
             </div>
             <div className="contentContainer">
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/article1.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardTitle">
-                  회사에서도 SNS처럼 만나면 되잖아!
-                </p>
-                <p className="cardHashtag">#HR</p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/article2.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardTitle">
-                  스타트업에서는 어떤 방식으로 시니어를 채용해야 할까?
-                </p>
-                <p className="cardHashtag">#HR #조직문화 #경영/전략</p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/article3.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardTitle">
-                  신선한 가을 날씨에 어울릴 아티클 추천 리스트
-                </p>
-                <p className="cardHashtag">#마케팅/광고 #커리어고민 #시리즈</p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/article4.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardTitle">
-                  애써 모신 시니어, 우리 조직엔 안맞는 사람?
-                </p>
-                <p className="cardHashtag">#HR #조직문화 #리더십</p>
-              </div>
+              <ArticleCard
+                img="image/article1.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                title="회사에서도 SNS처럼 만나면 되잖아!"
+                tag="#HR"
+              />
+              <ArticleCard
+                img="image/article2.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                title="   스타트업에서는 어떤 방식으로 시니어를 채용해야 할까?"
+                tag="#HR #조직문화 #경영/전략"
+              />
+              <ArticleCard
+                img="image/article3.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                title=" 신선한 가을 날씨에 어울릴 아티클 추천 리스트"
+                tag="#마케팅/광고 #커리어고민 #시리즈"
+              />
+              <ArticleCard
+                img="image/article4.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                title=" 애써 모신 시니어, 우리 조직엔 안맞는 사람?"
+                tag="#HR #조직문화 #리더십"
+              />
             </div>
           </div>
         </div>
@@ -273,66 +298,34 @@ function MainPage() {
               </span>
             </div>
             <div className="contentContainer">
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/vod1.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardName">노무법인 예담HR컨설팅 장내석</p>
-                <p className="careerCardTitle">회사를 구하는 인사</p>
-                <p className="card__sub">회사를 구하는 인사 : Live Talk #27</p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/vod2.jpg"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardName">
-                  피플펀드 권순관, 드림어스 제정민
-                </p>
-                <p className="careerCardTitle">신입 개발자의 취업 성공기</p>
-                <p className="card__sub">
-                  신입 개발자의 취업 성공기 : Live Talk #50
-                </p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/vod3.JPG"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardName">노무법인미담 김동미</p>
-                <p className="careerCardTitle">
-                  선택적 근로시간제의 모든 것 (주 52시간제 정착 시리즈3)
-                </p>
-                <p className="card__sub">선택적 근로 시간제의 모든 것</p>
-              </div>
-              <div className="articleContentItem">
-                <div className="careerCardThumbnail">
-                  <img
-                    src="image/vod4.JPG"
-                    alt="회사에서도 SNS처럼 만나면 되잖아!"
-                    className="Thumbnail_Thumbnail__image__NlEX0 undefined"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="careerCardName">전) 원티드 최보민</p>
-                <p className="careerCardTitle">포트폴리오를 부탁해</p>
-                <p className="card__sub">
-                  [무료] 포트폴리오를 부탁해 by 원티드
-                </p>
-              </div>
+              <VodCard
+                img="image/vod1.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                author="노무법인 예담HR컨설팅 장내석"
+                title="회사를 구하는 인사"
+                subTitle="회사를 구하는 인사 : Live Talk #27"
+              />
+              <VodCard
+                img="image/vod2.jpg"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                author=" 피플펀드 권순관, 드림어스 제정민"
+                title="신입 개발자의 취업 성공기"
+                subTitle=" 신입 개발자의 취업 성공기 : Live Talk #50"
+              />
+              <VodCard
+                img="image/vod3.JPG"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                author="노무법인미담 김동미"
+                title="선택적 근로시간제의 모든 것 (주 52시간제 정착 시리즈3)"
+                subTitle="선택적 근로 시간제의 모든 것"
+              />
+              <VodCard
+                img="image/vod4.JPG"
+                imgAlt="회사에서도 SNS처럼 만나면 되잖아!"
+                author="전) 원티드 최보민"
+                title="포트폴리오를 부탁해"
+                subTitle=" [무료] 포트폴리오를 부탁해 by 원티드"
+              />
             </div>
           </div>
         </div>
@@ -357,27 +350,19 @@ function MainPage() {
               </span>
             </div>
             <div className="contentContainer">
-              <div className="eventContentItem">
-                <div className="eventCardThumbnail">
-                  <img src="image/event1.JPG" />
-                </div>
-                <div className="eventItem_content">
-                  <span className="eventKind">교육</span>
-                  <p className="eventTitle">스타트업 Lead를 위한 그룹코칭</p>
-                  <p className="eventInfo">2022.12.08 (목)</p>
-                </div>
-              </div>
-              <div className="eventContentItem">
-                <div className="eventCardThumbnail">
-                  <img src="image/event2.JPG" />
-                </div>
-                <div className="eventItem_content">
-                  <span className="onOffKind">온라인</span>
-                  <span className="eventKind">교육</span>
-                  <p className="eventTitle">프리온보딩 백엔드 코스</p>
-                  <p className="eventInfo">2022.12.08 (목)</p>
-                </div>
-              </div>
+              <EventCard
+                img="image/event1.JPG"
+                kind="교육"
+                title="스타트업 Lead를 위한 그룹코칭"
+                info="2022.12.08 (목)"
+              />
+              <EventCard
+                img="image/event2.JPG"
+                kind="교육"
+                onOff="온라인"
+                title="프리온보딩 백엔드 코스"
+                info="2022.12.08 (목)"
+              />
             </div>
           </div>
         </div>

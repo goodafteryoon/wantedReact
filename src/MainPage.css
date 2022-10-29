@@ -356,6 +356,7 @@ button {
 }
 .eventContentItem {
   width: 522px;
+  margin-bottom: 20px;
 }
 .eventCardThumbnail img {
   width: 100%;
@@ -368,6 +369,7 @@ button {
   background-color: black;
   padding: 1px 6px;
   color: white;
+  margin-right: 5px;
 }
 .eventKind {
   font-size: 11px;
