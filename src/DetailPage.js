@@ -77,7 +77,7 @@ function DetailPage() {
                 </span>
               </div>
             </div>
-            <div className="jobDescription-container">
+            <div className="jobDescriptionContainer">
               <p>
                 <span>
                   ＜서비스 소개＞
