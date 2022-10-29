@@ -51,6 +51,7 @@ button {
   /* background-color: yellowgreen; */
   padding-top: 50px; /* 헤더에 fixed 속성을 주면 그 높이만큼 padding top을 주어야 한다 */
 }
+/* job 서치 섹션 */
 .jobSearchSection {
   width: 100%;
   height: 250px;
@@ -60,15 +61,7 @@ button {
   align-items: center;
   /* border: 2px solid blue; */
 }
-.jobListSection {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1; /* 서치 섹션 이후로 메인 꽉 차도록 */
-  /* background-color: skyblue; */
-}
+
 .filterContainer {
   width: 1060px; /* 컨테이너 기준 너비 */
   height: 100%;
@@ -252,6 +245,13 @@ button {
 .jobListSection {
   padding-top: 20px;
   border-top: 1px solid #e1e2e3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* 서치 섹션 이후로 메인 꽉 차도록 */
+  /* background-color: skyblue; */
   /* border: 1px solid gold; */
 }
 .bookmarkContainer {
