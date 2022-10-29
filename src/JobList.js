@@ -131,7 +131,7 @@ function WdList() {
               </span>
             </button>
           </div>
-          <div className="jobListContainer">
+          <div className="jobCardContainer">
             <JobCard
               img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31699%2F0dxtcoprgjpv9hwf__400_400.jpg&w=400&q=75"
               position="IOS 개발자"
