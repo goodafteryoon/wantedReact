@@ -1,10 +1,11 @@
-import React from 'react';
-import './DetailPage.css';
-import SimpleSlider from './SimpleSlider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-import { faHeart, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import Header from './Header';
+import React from "react";
+import "./DetailPage.css";
+import SimpleSlider from "./SimpleSlider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faHeart, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function DetailPage() {
   return (
@@ -524,6 +525,7 @@ function DetailPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

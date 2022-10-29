@@ -7,7 +7,7 @@ import WdList from "./WdList";
 function App() {
   return (
     <div className="page">
-      <MainPage />
+      <DetailPage />
     </div>
   );
 }
