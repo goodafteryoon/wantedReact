@@ -12,20 +12,22 @@ function JobCard({
 }) {
   return (
     <div className="jobCardItem">
-      <div className="cardHeader">
-        <img alt="" src={img} />
-      </div>
-      <div className="cardPosition">{position}</div>
-      <div className="cardCompany">{company}</div>
-      <div className="cardReponse">
-        <span>{response}</span>
-      </div>
-      <div className="cardLocation">
-        {location}
-        <span className="addressDot">.</span>
-        <span>{country}</span>
-      </div>
-      <div className="cardReward">{reward}</div>
+      <a href="">
+        <div className="cardHeader">
+          <img alt="" src={img} />
+        </div>
+        <div className="cardPosition">{position}</div>
+        <div className="cardCompany">{company}</div>
+        <div className="cardReponse">
+          <span>{response}</span>
+        </div>
+        <div className="cardLocation">
+          {location}
+          <span className="addressDot">.</span>
+          <span>{country}</span>
+        </div>
+        <div className="cardReward">{reward}</div>
+      </a>
     </div>
   );
 }

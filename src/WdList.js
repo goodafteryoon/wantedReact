@@ -1,5 +1,5 @@
 import React from "react";
-import "./JobList.css";
+import "./WdList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,

@@ -11,12 +11,7 @@ body {
   font-family: "Nanum Gothic", sans-serif;
   color: #333333;
 }
-.page {
-  /* width: 100vw; */ /* 이걸 없애니까 좌우 스크롤이 사라졌다.. */
-  height: 100vh;
-  display: flex;
-  flex-direction: column; /* 헤더 메인 푸터 쌓아올리기 */
-}
+
 a,
 a:link,
 a:visited {

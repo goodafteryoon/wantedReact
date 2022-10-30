@@ -1,14 +1,19 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
 import DetailPage from "./DetailPage";
-import JobList from "./JobList";
+import WdList from "./WdList";
 
 function App() {
   return (
-    <div className="page">
-      <DetailPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/b" element={<WdList />} />
+        <Route path="/c" element={<DetailPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

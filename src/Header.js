@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
@@ -9,6 +10,12 @@ function Header() {
   // 모달창 노출 여부 state
 
   const [signUpOpen, setSignUpOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const goToMain = () => {
+    alert("메인 페이지로 이동합니다.");
+    navigate("/");
+  };
 
   return (
     <>
@@ -24,18 +31,18 @@ function Header() {
                 objectFit="contain"
               />
             </button>
-            <a className="headerNavTitle" href="https://www.wanted.co.kr/">
+            <div className="headerNavTitle" onClick={goToMain}>
               <img
                 src="image/wanted_BI_logotype.png"
                 height="17px"
                 width="74.38px"
                 alt="원티드 로고"
               />
-            </a>
+            </div>
           </div>
           <div className="headerNavItem">
             <div className="headerNavList">
-              <a href="https://www.wanted.co.kr/jobsfeed">채용</a>
+              <Link to="/b">채용</Link>
             </div>
             <div className="headerNavList">
               <a href="https://www.wanted.co.kr/events">이벤트</a>
@@ -75,7 +82,7 @@ function Header() {
             </div>
             <div className="headerAsideList">|</div>
             <div className="headerAsideList">
-              <a className="headerDashboardBtn" href="#">
+              <a className="headerDashboardBtn" href="">
                 기업 서비스
               </a>
             </div>
