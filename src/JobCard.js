@@ -13,7 +13,7 @@ function JobCard({
 }) {
   return (
     <div className="jobCardItem">
-      <Link to="/detail">
+      <Link to="/wd">
         <div className="cardHeader">
           <img alt="" src={img} />
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./DetailPage.css";
+import "./Wd.css";
 import SimpleSlider from "./SimpleSlider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -8,7 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import JobCard from "./JobCard";
 
-function DetailPage() {
+function Wd() {
   return (
     <>
       <Header />
@@ -610,4 +610,4 @@ function DetailPage() {
   );
 }
 
-export default DetailPage;
+export default Wd;

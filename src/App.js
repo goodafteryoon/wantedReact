@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
-import DetailPage from "./DetailPage";
+import Wd from "./Wd";
 import WdList from "./WdList";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/wdlist" element={<WdList />} />
-        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/wd" element={<Wd />} />
       </Routes>
     </BrowserRouter>
   );
