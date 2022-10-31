@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./JobCard.css";
 
 function JobCard({
-  img,
+  id,
+  src,
   position,
   company,
   response,
@@ -11,11 +12,16 @@ function JobCard({
   country,
   reward,
 }) {
+  function Money(num) {
+    const number = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return { number } + "원";
+  }
+
   return (
     <div className="jobCardItem">
-      <Link to="/wd">
+      <Link to={`/wdlist/${id}`} key={id}>
         <div className="cardHeader">
-          <img alt="" src={img} />
+          <img alt="" src={src} />
         </div>
         <div className="cardPosition">{position}</div>
         <div className="cardCompany">{company}</div>
@@ -27,7 +33,7 @@ function JobCard({
           <span className="addressDot">.</span>
           <span>{country}</span>
         </div>
-        <div className="cardReward">{reward}</div>
+        <div className="cardReward">{Money(reward)}</div>
       </Link>
     </div>
   );

@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/wdlist" element={<WdList />} />
-        <Route path="/wd" element={<Wd />} />
+        <Route path="/wdlist/:id" element={<Wd />} />
       </Routes>
     </BrowserRouter>
   );

@@ -7,8 +7,11 @@ import { faHeart, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
 import Footer from "./Footer";
 import JobCard from "./JobCard";
+import { useParams } from "react-router-dom";
 
 function Wd() {
+  let id = useParams();
+
   return (
     <>
       <Header />
