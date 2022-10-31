@@ -246,7 +246,7 @@
   border: 1px solid #e1e2e3;
   background-color: #fff;
   padding: 24px 20px;
-  position: fixed;
+  position: sticky;
   border-radius: 3px;
   /* border: 2px solid gold; */
 }

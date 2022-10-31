@@ -133,6 +133,15 @@ function WdList() {
           </div>
           <div className="jobCardContainer">
             <JobCard
+              img="image/4slide1.jpg"
+              position="웹 프론트엔드 개발자(React)"
+              company="블루비커"
+              response="응답률 매우 높음"
+              location="서울"
+              country="한국"
+              reward="채용보상금 1,000,000원"
+            />
+            <JobCard
               img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31699%2F0dxtcoprgjpv9hwf__400_400.jpg&w=400&q=75"
               position="IOS 개발자"
               company="밴플"

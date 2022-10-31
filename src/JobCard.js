@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./JobCard.css";
 
 function JobCard({
@@ -12,7 +13,7 @@ function JobCard({
 }) {
   return (
     <div className="jobCardItem">
-      <a href="">
+      <Link to="/detail">
         <div className="cardHeader">
           <img alt="" src={img} />
         </div>
@@ -27,7 +28,7 @@ function JobCard({
           <span>{country}</span>
         </div>
         <div className="cardReward">{reward}</div>
-      </a>
+      </Link>
     </div>
   );
 }

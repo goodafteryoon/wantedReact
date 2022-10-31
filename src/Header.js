@@ -42,7 +42,7 @@ function Header() {
           </div>
           <div className="headerNavItem">
             <div className="headerNavList">
-              <Link to="/b">채용</Link>
+              <Link to="/wdlist">채용</Link>
             </div>
             <div className="headerNavList">
               <a href="https://www.wanted.co.kr/events">이벤트</a>

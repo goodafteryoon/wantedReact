@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/b" element={<WdList />} />
-        <Route path="/c" element={<DetailPage />} />
+        <Route path="/wdlist" element={<WdList />} />
+        <Route path="/detail" element={<DetailPage />} />
       </Routes>
     </BrowserRouter>
   );
