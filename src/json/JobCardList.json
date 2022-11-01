@@ -8,7 +8,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "100000"
+      "reward": 1000000
     },
     {
       "id": 1,
@@ -18,7 +18,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 2,
@@ -28,7 +28,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 3,
@@ -38,7 +38,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 4,
@@ -48,7 +48,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 5,
@@ -58,7 +58,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 6,
@@ -68,7 +68,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 7,
@@ -78,7 +78,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     },
     {
       "id": 8,
@@ -88,7 +88,7 @@
       "response": "응답률 매우 높음",
       "location": "서울",
       "country": "한국",
-      "reward": "채용보상금 1,000,000원"
+      "reward": 1000000
     }
   ]
 }

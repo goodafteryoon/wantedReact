@@ -12,6 +12,10 @@ function JobCard({
   country,
   reward,
 }) {
+  function Money(numbers) {
+    const number = numbers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return `${number}원`;
+  }
   return (
     <div className="jobCardItem">
       <Link to={`/wd/${id}`} key={id}>
@@ -28,7 +32,7 @@ function JobCard({
           <span className="addressDot">.</span>
           <span>{country}</span>
         </div>
-        <div className="cardReward">{reward}</div>
+        <div className="cardReward">{"채용보상금 " + Money(reward)}</div>
       </Link>
     </div>
   );
