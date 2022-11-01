@@ -1,5 +1,5 @@
 import React from "react";
-import "./WdList.css";
+import "./css/WdList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,
@@ -9,9 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
 import JobCard from "./JobCard";
-import { Link, useNavigate } from "react-router-dom";
-
-import JobCardListData from "./json/JobCardList.json";
+import JobCardListJson from "./json/JobCardList.json";
 
 function WdList() {
   function TagBtn({ title, img }) {
@@ -28,7 +26,7 @@ function WdList() {
   function JobCardList() {
     return (
       <>
-        {JobCardListData.jobCardList.map((jobCard) => (
+        {JobCardListJson.jobCardList.map((jobCard) => (
           <JobCard
             id={jobCard.id}
             src={jobCard.src}

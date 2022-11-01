@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import "./Header.css";
+import "./css/Header.css";
 import SignUpModal from "./SignUpModal";
 
 // 모달을 노출하는 헤더 컴포넌트
@@ -33,7 +33,7 @@ function Header() {
             </button>
             <div className="headerNavTitle" onClick={goToMain}>
               <img
-                src="image/wanted_BI_logotype.png"
+                src="/image/wanted_BI_logotype.png"
                 height="17px"
                 width="74.38px"
                 alt="원티드 로고"

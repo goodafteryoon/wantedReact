@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./JobCard.css";
+import { Link } from "react-router-dom";
+import "./css/JobCard.css";
 
 function JobCard({
   id,
@@ -12,14 +12,9 @@ function JobCard({
   country,
   reward,
 }) {
-  function Money(num) {
-    const number = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return { number } + "원";
-  }
-
   return (
     <div className="jobCardItem">
-      <Link to={`/wdlist/${id}`} key={id}>
+      <Link to={`/wd/${id}`} key={id}>
         <div className="cardHeader">
           <img alt="" src={src} />
         </div>
@@ -33,7 +28,7 @@ function JobCard({
           <span className="addressDot">.</span>
           <span>{country}</span>
         </div>
-        <div className="cardReward">{Money(reward)}</div>
+        <div className="cardReward">{reward}</div>
       </Link>
     </div>
   );

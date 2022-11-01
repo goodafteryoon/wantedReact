@@ -2,7 +2,7 @@
   "jobCardList": [
     {
       "id": 0,
-      "src": "image/4slide1.jpg",
+      "src": "/image/4slide1.jpg",
       "position": "웹 프론트엔드 개발자(React)",
       "company": "블루비커",
       "response": "응답률 매우 높음",

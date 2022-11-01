@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import './SignUpModal.css';
-import JoinModal from './JoinModal';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import "./css/SignUpModal.css";
+import JoinModal from "./JoinModal";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
 function SignUpModal({ signUpOpens, setSignUpOpens }) {
@@ -116,14 +116,14 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
                 <p className="modalInfo">
                   걱정마세요! 여러분의 지원 활동은 SNS에 노출되지 않습니다.
                   <br />
-                  회원가입 시{' '}
+                  회원가입 시{" "}
                   <a
                     href="https://help.wanted.co.kr/hc/ko/articles/360035484292"
                     target="_blank"
                   >
                     개인정보 처리방침
                   </a>
-                  과{' '}
+                  과{" "}
                   <a
                     href="https://help.wanted.co.kr/hc/ko/articles/360035844551"
                     target="_blank"

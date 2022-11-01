@@ -1,16 +1,33 @@
 import React from "react";
-import "./Wd.css";
-import SimpleSlider from "./SimpleSlider";
+import "./css/Wd.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faHeart, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import SimpleSlider from "./SimpleSlider";
 import Header from "./Header";
 import Footer from "./Footer";
 import JobCard from "./JobCard";
-import { useParams } from "react-router-dom";
+import JobCardListData from "./json/JobCardList.json";
 
 function Wd() {
-  let id = useParams();
+  function JobCardList() {
+    return (
+      <>
+        {JobCardListData.jobCardList.map((jobCard) => (
+          <JobCard
+            id={jobCard.id}
+            src={jobCard.src}
+            position={jobCard.position}
+            company={jobCard.company}
+            response={jobCard.response}
+            location={jobCard.location}
+            country={jobCard.country}
+            reward={jobCard.reward}
+          />
+        ))}
+      </>
+    );
+  }
 
   return (
     <>
@@ -455,12 +472,12 @@ function Wd() {
                 rel="noreferrer noopener"
                 target="_blank"
               >
-                <img alt="Map with company address" src="image/place.JPG" />
+                <img alt="Map with company address" src="/image/place.JPG" />
               </a>
             </div>
             <div className="companyInfo-container">
               <div className="infoItem">
-                <img src="image/bluebeaker.png" alt="블루비커 로고" />
+                <img src="/image/bluebeaker.png" alt="블루비커 로고" />
               </div>
               <div className="infoItem">
                 <div className="infodetail">블루비커</div>
@@ -533,78 +550,7 @@ function Wd() {
         <div className="jobAssociatedWrapper">
           <h5 className="jobAssociatedTitle">이 포지션을 찾고 계셨나요?</h5>
           <div className="jobCardContainer">
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31699%2F0dxtcoprgjpv9hwf__400_400.jpg&w=400&q=75"
-              position="IOS 개발자"
-              company="밴플"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F7290%2Ft1rzkwgwdmhlgegi__400_400.png&w=400&q=75"
-              position="온라인 MD"
-              company="제로파운더스"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F15001%2Frlevmevn1jkftss2__400_400.jpg&w=400&q=75"
-              position="컨텐츠 디자이너"
-              company="보더리스"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F27937%2Fnjqi79exz46jdad1__400_400.png&w=400&q=75"
-              position="Multimedia SW개발(Camera, Audio 등)"
-              company="썬더소프트코리아"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F23344%2Fd50lyj9narsi9akc__400_400.jpg&w=400&q=75"
-              position="전시설계 및 시공"
-              company="닷밀"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F17566%2Fqurxokllrmngh8zh__400_400.jpg&w=400&q=75"
-              position="PLㅣ프로젝트 리더"
-              company="창업인"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31595%2Fqupzkmpyk9i9bxm8__400_400.jpg&w=400&q=75"
-              position="자율주행 Vehicle Control Simulation Engineer"
-              company="라이드플럭스"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
-            <JobCard
-              img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F11515%2Fi9k8el8bmdbdcejq__400_400.jpg&w=400&q=75"
-              position="데이터 엔지니어 / Python specialist (신입가능)"
-              company="수성엔지니어링"
-              response="응답률 매우 높음"
-              location="서울"
-              country="한국"
-              reward="채용보상금 1,000,000원"
-            />
+            <JobCardList />
           </div>
         </div>
       </div>

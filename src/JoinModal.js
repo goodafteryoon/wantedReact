@@ -1,8 +1,8 @@
-import React from 'react';
-import './JoinModal.css';
-import './SignUpModal.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import "./css/JoinModal.css";
+import "./css/SignUpModal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function JoinModal({ joinOpen, setJoinOpen }) {
   return (

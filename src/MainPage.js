@@ -1,5 +1,5 @@
 import React from "react";
-import "./MainPage.css";
+import "./css/MainPage.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import TopBannerSlide from "./TopBannerSlide";

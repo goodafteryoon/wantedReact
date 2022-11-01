@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import "./css/Footer.css";
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
           <div className="footerNavContainer">
             <div className="footerNavItemWrapper">
               <div className="footerNavItem">
-                <img src="image/logo.jpg" alt="슬라이드 이미지" />
+                <img src="/image/logo.jpg" alt="로고 이미지" />
               </div>
               <div className="footerNavItem">기업소개</div>
               <div className="footerNavItem">이용약관</div>
@@ -19,28 +19,28 @@ function Footer() {
             <div className="footerNavItemWrapper">
               <div className="footerNavItem">
                 <span className="snsIcon">
-                  <img src="image/sns1.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns1.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns2.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns2.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns3.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns3.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns4.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns4.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns5.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns5.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns6.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns6.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns7.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns7.jpg" alt="sns 이미지" />
                 </span>
                 <span className="snsIcon">
-                  <img src="image/sns8.jpg" alt="슬라이드 이미지" />
+                  <img src="/image/sns8.jpg" alt="sns 이미지" />
                 </span>
               </div>
             </div>
