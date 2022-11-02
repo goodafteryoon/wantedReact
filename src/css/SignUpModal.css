@@ -1,14 +1,5 @@
 /* signUp 로그인 모달창 */
-.modal {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  overflow: hidden;
-  z-index: 100;
-  scrollbar-width: 0;
-}
+
 .modalContainer {
   width: 400px;
   overflow-y: auto;

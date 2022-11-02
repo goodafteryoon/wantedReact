@@ -104,7 +104,7 @@
     },
     {
       "id": 3,
-      "img": "/image/article4.jpg",
+      "src": "/image/article4.jpg",
       "imgAlt": "회사에서도 SNS처럼 만나면 되잖아!",
       "title": " 애써 모신 시니어, 우리 조직엔 안맞는 사람?",
       "tag": "#HR #조직문화 #리더십"

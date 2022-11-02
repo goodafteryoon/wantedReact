@@ -1,4 +1,15 @@
 /* join 모달창 css */
+.joinModal {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  border: 2px solid red;
+  z-index: 100;
+  scrollbar-width: 0;
+}
 .mobileInputSelect {
   margin-bottom: 10px;
   position: relative;

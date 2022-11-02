@@ -1,0 +1,117 @@
+/* searchBar 검색창 */
+.searchWrapper {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 12;
+  padding: 30px 0 40px 0;
+  background-color: white;
+  /* border: 2px solid blue; */
+}
+.searchFormSection {
+  /* border: 2px solid black; */
+  display: flex;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+.searchFormContainer {
+  width: 1060px;
+  /* border: 2px solid red; */
+}
+.searchFormContainer > form > button {
+  position: relative;
+  top: -33px;
+  left: 20px;
+  color: #939393;
+  width: 18px;
+  height: 18px;
+  margin: 0 16px 0 6px;
+}
+.searchFormContainer > form > input {
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  padding: 0 36px 0 60px;
+  border: 1px solid #f2f4f7;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #767676;
+  background-color: #f2f4f7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.searchResultSection {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searchResultContainer {
+  width: 1060px;
+  /* border: 2px solid blueviolet; */
+  display: flex;
+}
+.searchResultContainer:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+.searchResultContainer > h4 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.searchResultContainer > a {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #767676;
+}
+
+.searchResultTagList > button {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 0 26px;
+  background-color: #f3f5f8;
+  border-radius: 25px;
+}
+
+.searchResultTagList > button:nth-child(1) {
+  background-color: #f0f8f8;
+}
+.searchResultTagList > button:nth-child(2) {
+  background-color: #eeedf4;
+}
+.searchResultTagList > button:nth-child(3) {
+  background-color: #e8edf3;
+}
+.searchResultTagList > button:nth-child(4) {
+  background-color: #e9f4fb;
+}
+.searchResultTagList > button:nth-child(5) {
+  background-color: #effbf3;
+}
+
+.searchBarBg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.5);
+}

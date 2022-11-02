@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./css/Header.css";
 import SignUpModal from "./SignUpModal";
+import SearchBar from "./SearchBar";
 
 // 모달을 노출하는 헤더 컴포넌트
 function Header() {
@@ -11,6 +12,7 @@ function Header() {
 
   const [signUpOpen, setSignUpOpen] = useState(false);
   const navigate = useNavigate();
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const goToMain = () => {
     alert("메인 페이지로 이동합니다.");
@@ -68,7 +70,9 @@ function Header() {
           </div>
           <div className="headerNavItem">
             <div className="headerAsideList">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <button onClick={() => setSearchOpen(true)}>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
             </div>
             <div className="headerAsideList">
               <button
@@ -82,7 +86,7 @@ function Header() {
             </div>
             <div className="headerAsideList">|</div>
             <div className="headerAsideList">
-              <a className="headerDashboardBtn" href="">
+              <a className="headerDashboardBtn" href=" ">
                 기업 서비스
               </a>
             </div>
@@ -90,6 +94,7 @@ function Header() {
         </div>
       </div>
       <SignUpModal signUpOpens={signUpOpen} setSignUpOpens={setSignUpOpen} />
+      <SearchBar searchOpens={searchOpen} setSearchOpens={setSearchOpen} />
     </>
   );
 }

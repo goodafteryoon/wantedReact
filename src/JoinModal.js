@@ -8,7 +8,7 @@ function JoinModal({ joinOpen, setJoinOpen }) {
   return (
     <>
       {joinOpen && (
-        <div className="modal" id="joinModal">
+        <div className="joinModal" id="joinModal">
           <div className="modalContainer">
             <div className="modalHeader">
               회원가입

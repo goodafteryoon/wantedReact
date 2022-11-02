@@ -123,7 +123,9 @@ function MainPage() {
     <>
       <Header />
       <div className="main">
-        <TopBannerSlide />
+        <div className="slideSection">
+          <TopBannerSlide />
+        </div>
         <div className="careerSection">
           <div className="careerWrapper">
             <div className="titleContainer">
