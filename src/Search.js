@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./css/Search.css";
 
-function Search() {
+function Search({ searchTerm, setSearchTerm }) {
   function TagBtn({ title, img }) {
     return (
       <div className="tagButton">
@@ -46,7 +46,7 @@ function Search() {
       <Header />
       <div className="searchInputKeyword">
         <button type="button" className="searchInputKeywordTitle">
-          프론트
+          키워드
         </button>
       </div>
       <div className="searchInputResultWrapper">
@@ -177,40 +177,38 @@ function Search() {
             </div>
             <hr className="filterWdlistDevider" />
             <div className="searchTagContainer">
-              <div className="container">
-                <TagBtn
-                  title="연봉이 최고의 복지"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F634f02e0-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="퇴사율 10% 이하"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F7d3cdb3c-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="급성장 중"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F37dacf86-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="병역특례"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F6eda33d2-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="50인 이하"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F3a965d18-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="50인 이상"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F4cec3244-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="업력 5년 이상"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F45bb9794-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-                />
-                <TagBtn
-                  title="유연근무"
-                  img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F827f6146-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-                />
-              </div>
+              <TagBtn
+                title="연봉이 최고의 복지"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F634f02e0-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="퇴사율 10% 이하"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F7d3cdb3c-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="급성장 중"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F37dacf86-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="병역특례"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F6eda33d2-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="50인 이하"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F3a965d18-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="50인 이상"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F4cec3244-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="업력 5년 이상"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F45bb9794-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
+              />
+              <TagBtn
+                title="유연근무"
+                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F827f6146-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
+              />
             </div>
             <div className="jobCardContainer">
               <JobCardList />

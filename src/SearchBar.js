@@ -2,8 +2,21 @@ import React, { useState } from "react";
 import "./css/SearchBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import JobCardListJson from "./json/JobCardList.json";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar({ searchOpens, setSearchOpens }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+  const onKeyPress = (e) => {
+    e.preventDefault();
+    if (!searchTerm) alert("검색어를 입력해주세요!!");
+    else {
+      navigate(`/search?term=${searchTerm}`);
+      setSearchOpens(false);
+    }
+  };
+
   return (
     <>
       {searchOpens && (
@@ -11,12 +24,15 @@ function SearchBar({ searchOpens, setSearchOpens }) {
           <div className="searchWrapper">
             <div className="searchFormSection">
               <div className="searchFormContainer">
-                <form role="presentation">
+                <form role="presentation" onSubmit={onKeyPress}>
                   <input
                     type="search"
                     placeholder="#태그, 회사, 포지션 검색"
                     autocomplete="off"
-                    value=""
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                    }}
                   />
                   <button>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
