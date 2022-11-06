@@ -6,7 +6,6 @@
   bottom: 0;
   position: fixed;
   overflow: hidden;
-  border: 2px solid red;
   z-index: 100;
   scrollbar-width: 0;
 }

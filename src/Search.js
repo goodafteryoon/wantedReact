@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Header from "./Header";
 import JobCard from "./JobCard";
+import SearchBar from "./SearchBar";
 import JobCardListJson from "./json/JobCardList.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCaretDown,
-  faChevronRight,
-  faChevronDown,
-  faBookmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "./css/Search.css";
 
-function Search({ searchTerm, setSearchTerm }) {
+function Search() {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchTerm = searchParams.get("term");
   function TagBtn({ title, img }) {
     return (
       <div className="tagButton">
@@ -26,7 +26,7 @@ function Search({ searchTerm, setSearchTerm }) {
   function JobCardList() {
     return (
       <>
-        {JobCardListJson.jobCardList.map((jobCard) => (
+        {filteredJobList().map((jobCard) => (
           <JobCard
             id={jobCard.id}
             src={jobCard.src}
@@ -41,12 +41,21 @@ function Search({ searchTerm, setSearchTerm }) {
       </>
     );
   }
+  const filteredJobList = () => {
+    return JobCardListJson.jobCardList.filter((e) =>
+      e.position.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  };
   return (
     <>
       <Header />
       <div className="searchInputKeyword">
-        <button type="button" className="searchInputKeywordTitle">
-          키워드
+        <button
+          type="button"
+          className="searchInputKeywordTitle"
+          onClick={() => setSearchOpen(true)}
+        >
+          {searchTerm}
         </button>
       </div>
       <div className="searchInputResultWrapper">
@@ -56,7 +65,7 @@ function Search({ searchTerm, setSearchTerm }) {
             <span>1</span>
           </div>
           <div className="categoryTagBar">
-            <a className="categoryTagItem">프론트엔드 개발자</a>
+            <a className="categoryTagItem">{searchTerm + " " + "개발자"}</a>
           </div>
         </div>
         <div className="searchInputResultSection">
@@ -130,7 +139,7 @@ function Search({ searchTerm, setSearchTerm }) {
         <div className="searchInputResultSection">
           <div className="searchInputResultHeader">
             <h2>포지션</h2>
-            <span>662</span>
+            <span>{filteredJobList().length}</span>
           </div>
           <div className="searchInputJobList">
             <div className="searchSelectContainer">
@@ -216,6 +225,7 @@ function Search({ searchTerm, setSearchTerm }) {
           </div>
         </div>
       </div>
+      <SearchBar searchOpens={searchOpen} setSearchOpens={setSearchOpen} />
     </>
   );
 }

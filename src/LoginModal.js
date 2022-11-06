@@ -5,7 +5,7 @@ import "./css/SignUpModal.css";
 import JoinModal from "./JoinModal";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
-function SignUpModal({ signUpOpens, setSignUpOpens }) {
+function LoginModal({ signUpOpens, setSignUpOpens }) {
   // 모달창 노출 여부 state
   const [joinOpen, setJoinOpen] = useState(false);
 
@@ -16,7 +16,7 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
           <div className="modalContainer">
             <div className="modalHeader">
               <img
-                src="image/wanted_BI_logotype.png"
+                src="/image/wanted_BI_logotype.png"
                 height="17px"
                 width="74.38px"
                 alt="logo"
@@ -70,7 +70,7 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
                     <div className="modalSns">
                       <button>
                         <img
-                          src="image/kakao.png"
+                          src="/image/kakao.png"
                           alt="카카오"
                           width="50"
                           height="50"
@@ -81,7 +81,7 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
                     <div className="modalSns">
                       <button id>
                         <img
-                          src="image/facebook.png"
+                          src="/image/facebook.png"
                           alt="페북"
                           width="50"
                           height="50"
@@ -92,7 +92,7 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
                     <div className="modalSns">
                       <button>
                         <img
-                          src="image/google.png"
+                          src="/image/google.png"
                           alt="구글"
                           width="50"
                           height="50"
@@ -103,7 +103,7 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
                     <div className="modalSns">
                       <button>
                         <img
-                          src="image/apple.jpeg"
+                          src="/image/apple.jpeg"
                           alt="애플"
                           width="50"
                           height="50"
@@ -147,4 +147,4 @@ function SignUpModal({ signUpOpens, setSignUpOpens }) {
   );
 }
 
-export default SignUpModal;
+export default LoginModal;

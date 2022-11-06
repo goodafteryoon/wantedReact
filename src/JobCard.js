@@ -18,7 +18,7 @@ function JobCard({
   }
   return (
     <div className="jobCardItem">
-      <Link to={`/wd/${id}`} key={id}>
+      <Link to={`/wd/${id}`}>
         <div className="cardHeader">
           <img alt="" src={src} />
         </div>

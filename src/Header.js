@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./css/Header.css";
-import SignUpModal from "./SignUpModal";
+import LoginModal from "./LoginModal";
 import SearchBar from "./SearchBar";
 
 // 모달을 노출하는 헤더 컴포넌트
@@ -93,7 +93,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <SignUpModal signUpOpens={signUpOpen} setSignUpOpens={setSignUpOpen} />
+      <LoginModal signUpOpens={signUpOpen} setSignUpOpens={setSignUpOpen} />
       <SearchBar searchOpens={searchOpen} setSearchOpens={setSearchOpen} />
     </>
   );
