@@ -10,7 +10,7 @@ import SearchBar from "./SearchBar";
 function Header() {
   // 모달창 노출 여부 state
 
-  const [signUpOpen, setSignUpOpen] = useState(false);
+  const [signUpOpen, setSignUpOpen] = useState(false); //0
   const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
 

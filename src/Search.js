@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import Header from "./Header";
 import JobCard from "./JobCard";
 import SearchBar from "./SearchBar";
 import JobCardListJson from "./json/JobCardList.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "react-router-dom";
 import "./css/Search.css";
 
 function Search() {
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get("term");
   function TagBtn({ title, img }) {
     return (

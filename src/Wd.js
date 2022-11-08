@@ -1,6 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import "./css/Wd.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -33,6 +33,7 @@ function Wd() {
       </>
     );
   }
+  const [level, setLevel] = useState(3);
 
   return (
     <>
@@ -483,17 +484,34 @@ function Wd() {
                       서울 용산구 한강대로 366 트윈시티 남산 2 패스트파이브
                     </span>
                   </div>
-                  <a
+                  {/* <a
                     className="NaverMap_NaverMap__6TuZG"
                     href="https://map.naver.com/?dlevel=13&amp;pinTitle=서울특별시 용산구 한강대로 366 트윈시티 남산&amp;lat=37.5511247&amp;lng=126.9729133"
                     rel="noreferrer noopener"
                     target="_blank"
-                  >
-                    <img
+                  > */}
+                  {/* <img
                       alt="Map with company address"
                       src="/image/place.JPG"
-                    />
-                  </a>
+                    /> */}
+
+                  <Map
+                    center={{
+                      lat: 37.55171330908929,
+                      lng: 126.9729302834317,
+                    }}
+                    style={{ width: "100%", height: "254px" }}
+                    level={level}
+                  >
+                    <MapMarker
+                      position={{
+                        lat: 37.55171330908929,
+                        lng: 126.9729302834317,
+                      }}
+                    ></MapMarker>
+                  </Map>
+
+                  {/* </a> */}
                 </div>
                 <div className="companyInfo-container">
                   <div className="infoItem">

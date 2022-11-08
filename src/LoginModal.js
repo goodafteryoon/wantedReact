@@ -1,13 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import "./css/SignUpModal.css";
+import "./css/LoginModal.css";
 import JoinModal from "./JoinModal";
+
+const User = {
+  email: "test@example.com",
+  pw: "test2323@@@",
+};
 
 // join 모달을 노출하는 signUpModal 컴포넌트
 function LoginModal({ signUpOpens, setSignUpOpens }) {
-  // 모달창 노출 여부 state
+  // 회원가입 모달창 노출 여부 state
   const [joinOpen, setJoinOpen] = useState(false);
+  // 로그인 로직
+  const [email, setEmail] = useState("");
+  const [emailValid, setEmailValid] = useState(false);
+  const [notAllow, setNotAllow] = useState(true);
+
+  useEffect(() => {
+    if (emailValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  }, [emailValid]);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    const regex =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (regex.test(e.target.value)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false);
+    }
+  };
 
   return (
     <>
@@ -48,12 +76,19 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
                   <label>이메일</label>
                   <div className="inputBody">
                     <input
+                      className="userEmail"
                       type="mail"
-                      id="userEmail"
+                      id="email"
                       placeholder="이메일을 입력해 주세요."
+                      value={email}
+                      onChange={handleEmail}
                     />
                   </div>
-                  <div className="modalError" id="emailError"></div>
+                  <div className="modalError" id="emailError">
+                    {!emailValid && email.length > 0 && (
+                      <div>올바른 이메일을 입력해주세요.</div>
+                    )}
+                  </div>
                 </div>
                 <div className="socialContainer">
                   <button
@@ -61,6 +96,7 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
                     id="mailLogin"
                     type="submit"
                     onClick={() => setJoinOpen(true)}
+                    disabled={notAllow}
                   >
                     이메일로 계속하기
                   </button>

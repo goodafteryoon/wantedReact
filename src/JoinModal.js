@@ -1,10 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./css/JoinModal.css";
-import "./css/SignUpModal.css";
+import "./css/LoginModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function JoinModal({ joinOpen, setJoinOpen }) {
+  const [mobile, setMobile] = useState("");
+  const [mobileValid, setMobileValid] = useState(false);
+  const [notAllow, setNotAllow] = useState(true);
+
+  useEffect(() => {
+    if (mobileValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  }, [mobileValid]);
+
+  const handleMobile = (e) => {
+    setMobile(e.target.value);
+    const regex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+    if (regex.test(e.target.value)) {
+      setMobileValid(true);
+    } else {
+      setMobileValid(false);
+    }
+  };
+
+  // 체크박스 js
+  const data = [{ id: 0 }, { id: 1 }, { id: 2 }];
+
+  // 체크된 아이템을 담을 배열
+  const [checkItems, setCheckItems] = useState([]);
+
+  // 체크박스 단일 선택
+  const handleSingleCheck = (checked, id) => {
+    if (checked) {
+      // 단일 선택 시 체크된 아이템을 배열에 추가
+      setCheckItems((prev) => [...prev, id]);
+    } else {
+      // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
+      setCheckItems(checkItems.filter((el) => el !== id));
+    }
+  };
+
+  // 체크박스 전체 선택
+  const handleAllCheck = (checked) => {
+    if (checked) {
+      // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
+      const idArray = [];
+      data.forEach((el) => idArray.push(el.id));
+      setCheckItems(idArray);
+    } else {
+      // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
+      setCheckItems([]);
+    }
+  };
+
+  // 이제부터 인증번호
+
   return (
     <>
       {joinOpen && (
@@ -29,7 +83,6 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                     <div className="inputBody">
                       <input
                         name="name"
-                        className="joinInput"
                         type="text"
                         placeholder="이름을 입력해 주세요."
                       />
@@ -224,15 +277,22 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                           name="mobileNumber"
                           className="joinInput"
                           placeholder="(예시) 01012345678"
+                          value={mobile}
+                          onChange={handleMobile}
                         />
                         <button
                           id="mobileCodeButton"
                           className="KoreaOnly"
                           type="button"
-                          disabled
+                          disabled={notAllow}
                         >
                           인증번호 받기
                         </button>
+                      </div>
+                      <div className="modalError" id="mobileError">
+                        {!mobileValid && mobile.length > 0 && (
+                          <div>올바른 전화번호을 입력해주세요.</div>
+                        )}
                       </div>
                       <div className="mobileCode KoreaOnly">
                         <input
@@ -282,16 +342,44 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                   <div className="agreeWrap">
                     <div className="allCheckWrap">
                       <div className="labelStyle">
-                        <input type="checkbox" name="agreeAll" />
+                        <input
+                          className="joinCheckAll"
+                          type="checkbox"
+                          name="agreeAll"
+                          onChange={(e) => handleAllCheck(e.target.checked)}
+                          // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제
+                          // (하나라도 해제 시 선택 해제)
+                          checked={
+                            checkItems.length === data.length ? true : false
+                          }
+                        />
                         전체 동의
                       </div>
                     </div>
                     <div className="checkWrap">
                       <div className="labelStyle">
-                        <input type="checkbox" name="agreePrivacy" />
-                        개인정보 수집 및 이용 동의 (필수)
+                        <input
+                          type="checkbox"
+                          name="ageFourteen"
+                          onChange={(e) =>
+                            handleSingleCheck(e.target.checked, data.id)
+                          }
+                        />
+                        만 14세 이상입니다. (필수)
+                      </div>
+                    </div>
+                    <div className="checkWrap">
+                      <div className="labelStyle">
+                        <input
+                          type="checkbox"
+                          name="agreeEventEmail"
+                          onChange={(e) =>
+                            handleSingleCheck(e.target.checked, data.id)
+                          }
+                        />
+                        oneID 이용약관 동의 (필수)
                         <a
-                          href="https://help.wanted.co.kr/hc/ko/articles/360040127872"
+                          href="https://help.wanted.co.kr/hc/ko/articles/360040540111"
                           target="_blank"
                           className="agreeLink"
                         >
@@ -301,8 +389,14 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                     </div>
                     <div className="checkWrap">
                       <div className="labelStyle">
-                        <input type="checkbox" name="agreeEventEmail" />
-                        이벤트 소식 등 알림 정보 받기 (선택)
+                        <input
+                          type="checkbox"
+                          name="agreeEventEmail"
+                          onChange={(e) =>
+                            handleSingleCheck(e.target.checked, data.id)
+                          }
+                        />
+                        개인정보 이용 및 수집 동의 (필수)
                         <a
                           href="https://help.wanted.co.kr/hc/ko/articles/360040540111"
                           target="_blank"
