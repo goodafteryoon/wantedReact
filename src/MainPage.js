@@ -35,6 +35,7 @@ function CareerCardList() {
     <>
       {MainPageJson.careerCardList.map((card) => (
         <CareerCard
+          key={card.id}
           id={card.id}
           src={card.src}
           imgAlt={card.imgAlt}
@@ -55,7 +56,7 @@ function ArticleCardList({ src, imgAlt, title, tag }) {
       {MainPageJson.articleCardList.map((card) => (
         <div className="articleContentItem">
           <div className="careerCardThumbnail">
-            <img src={card.src} alt={card.imgAlt} />
+            <img src={card.src} alt={card.imgAlt} key={card.id} />
           </div>
           <p className="careerCardTitle">{card.title}</p>
           <p className="cardHashtag">{card.tag}</p>
@@ -71,7 +72,7 @@ function VodCardList({ img, imgAlt, author, title, subTitle }) {
       {MainPageJson.vodCardList.map((card) => (
         <div className="articleContentItem">
           <div className="careerCardThumbnail">
-            <img src={card.img} alt={card.imgAlt} />
+            <img src={card.img} alt={card.imgAlt} key={card.id} />
           </div>
           <p className="careerCardName">{card.author}</p>
           <p className="careerCardTitle">{card.title}</p>
@@ -102,7 +103,7 @@ function EventCardList({ img, kind, title, onOff, info }) {
   );
 }
 
-function QuickBtn(icon, name) {
+function QuickBtn({ icon, name }) {
   return (
     <div className="quickItem">
       <div className="quickIcon">
@@ -237,8 +238,8 @@ function MainPage() {
           <div className="subscribeContainer">
             <div className="subscribeItem">
               <div className="subscribeTitleContainer">
-                <span className="subscribeLogo">Wanted +</span>
-                <span className="subscribeTitle">구독해야 하는 이유</span>
+                <span className="subscribeLogo">Wanted+</span>
+                <span className="subscribeTitle">&nbsp;구독해야 하는 이유</span>
                 <p className="subscribeContent">
                   구독자의 서류 합격률이 비구독자보다 1.5배 높아요!
                 </p>
@@ -261,50 +262,10 @@ function MainPage() {
               <h2>채용 정보를 찾고 계셨나요?</h2>
             </div>
             <div className="quickMenuContainer">
-              <div className="quickItem">
-                <div className="quickIcon">
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </div>
-                <div className="quickMenu">
-                  채용공고
-                  <span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                  </span>
-                </div>
-              </div>
-              <div className="quickItem">
-                <div className="quickIcon">
-                  <FontAwesomeIcon icon={faUser} />
-                </div>
-                <div className="quickMenu">
-                  내 프로필
-                  <span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                  </span>
-                </div>
-              </div>
-              <div className="quickItem">
-                <div className="quickIcon">
-                  <FontAwesomeIcon icon={faBuilding} />
-                </div>
-                <div className="quickMenu">
-                  매치업
-                  <span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                  </span>
-                </div>
-              </div>
-              <div className="quickItem">
-                <div className="quickIcon">
-                  <FontAwesomeIcon icon={faSliders} />
-                </div>
-                <div className="quickMenu">
-                  직군별 연봉
-                  <span>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                  </span>
-                </div>
-              </div>
+              <QuickBtn icon={faMagnifyingGlass} name="채용공고" />
+              <QuickBtn icon={faUser} name="내 프로필" />
+              <QuickBtn icon={faBuilding} name="매치업" />
+              <QuickBtn icon={faSliders} name="직군별 연봉" />
             </div>
           </div>
         </div>

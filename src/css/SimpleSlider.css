@@ -9,7 +9,7 @@
 }
 
 .slick-prev::before {
-  left: 0;
+  left: 10;
 }
 .slick-next:before {
   right: 0;
@@ -19,9 +19,9 @@
 .slick-next:before {
   display: flex; /* 이미지 방향키 */
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   position: absolute;
-  top: 250px;
+  top: 200px;
   width: 30px;
   height: 60px;
   font-weight: 800;
@@ -30,7 +30,7 @@
   background-color: #fff;
   color: #646363;
   font-size: 20px;
-  z-index: 2;
+  z-index: 2000;
   border: none;
   cursor: pointer;
   margin: 0 20px;
