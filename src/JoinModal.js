@@ -8,23 +8,28 @@ function JoinModal({ joinOpen, setJoinOpen }) {
   const [mobile, setMobile] = useState("");
   const [mobileValid, setMobileValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
-
+  // 동의사항 체크 부분
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checkedAll, setCheckedAll] = useState(false);
 
   // 동의 사항 체크 부분
   const handleChkAll = (e) => {
-    if (!checked1 && !checked2) {
+    if (checked1 && checked2) {
       // 선택 1,2 둘다 체크 안돼있을때 누르면 모두 true로
-      setChecked1(true);
-      setChecked2(true);
-      setCheckedAll(true);
-    } else if (checked1 && checked2) {
-      // 선택 1, 2, 둘다 체크 돼있을때 누르면 모두 false로
       setChecked1(false);
       setChecked2(false);
       setCheckedAll(false);
+    } else if (checked1 || checked2) {
+      // 선택 1 또는 2 둘 중 하나 체크 돼있을 때 누르면 모두 true로
+      setChecked1(true);
+      setChecked2(true);
+      setCheckedAll(true);
+    } else {
+      // 그게 아니면(모두 체크 안돼있을때면) 모두 true로
+      setChecked1(true);
+      setChecked2(true);
+      setCheckedAll(true);
     }
   };
 
@@ -55,7 +60,7 @@ function JoinModal({ joinOpen, setJoinOpen }) {
 
   useEffect(() => {
     reverseChkAll();
-  }, [checked1, checked2]);
+  }, [checked1, checked2]); // 아래 생기는 밑줄은 무시해도 된다.
 
   useEffect(() => {
     if (mobileValid) {
