@@ -9,6 +9,54 @@ function JoinModal({ joinOpen, setJoinOpen }) {
   const [mobileValid, setMobileValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
 
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
+  const [checkedAll, setCheckedAll] = useState(false);
+
+  // 동의 사항 체크 부분
+  const handleChkAll = (e) => {
+    if (!checked1 && !checked2) {
+      // 선택 1,2 둘다 체크 안돼있을때 누르면 모두 true로
+      setChecked1(true);
+      setChecked2(true);
+      setCheckedAll(true);
+    } else if (checked1 && checked2) {
+      // 선택 1, 2, 둘다 체크 돼있을때 누르면 모두 false로
+      setChecked1(false);
+      setChecked2(false);
+      setCheckedAll(false);
+    }
+  };
+
+  const reverseChkAll = () => {
+    if (checked1 && checked2) {
+      // 선택 1,2 가 체크 돼있을땐 all도 체크 되게 해줌.
+      setCheckedAll(true);
+    } else {
+      setCheckedAll(false);
+    }
+  };
+
+  const handleChk1 = (e) => {
+    if (checked1) {
+      setChecked1(false);
+    } else if (!checked1) {
+      setChecked1(true);
+    }
+  };
+
+  const handleChk2 = (e) => {
+    if (checked2 === true) {
+      setChecked2(false);
+    } else if (checked2 === false) {
+      setChecked2(true);
+    }
+  };
+
+  useEffect(() => {
+    reverseChkAll();
+  }, [checked1, checked2]);
+
   useEffect(() => {
     if (mobileValid) {
       setNotAllow(false);
@@ -26,38 +74,6 @@ function JoinModal({ joinOpen, setJoinOpen }) {
       setMobileValid(false);
     }
   };
-
-  // 체크박스 js
-  const data = [{ id: 0 }, { id: 1 }, { id: 2 }];
-
-  // 체크된 아이템을 담을 배열
-  const [checkItems, setCheckItems] = useState([]);
-
-  // 체크박스 단일 선택
-  const handleSingleCheck = (checked, id) => {
-    if (checked) {
-      // 단일 선택 시 체크된 아이템을 배열에 추가
-      setCheckItems((prev) => [...prev, id]);
-    } else {
-      // 단일 선택 해제 시 체크된 아이템을 제외한 배열 (필터)
-      setCheckItems(checkItems.filter((el) => el !== id));
-    }
-  };
-
-  // 체크박스 전체 선택
-  const handleAllCheck = (checked) => {
-    if (checked) {
-      // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
-      const idArray = [];
-      data.forEach((el) => idArray.push(el.id));
-      setCheckItems(idArray);
-    } else {
-      // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
-      setCheckItems([]);
-    }
-  };
-
-  // 이제부터 인증번호
 
   return (
     <>
@@ -346,12 +362,8 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                           className="joinCheckAll"
                           type="checkbox"
                           name="agreeAll"
-                          onChange={(e) => handleAllCheck(e.target.checked)}
-                          // 데이터 개수와 체크된 아이템의 개수가 다를 경우 선택 해제
-                          // (하나라도 해제 시 선택 해제)
-                          checked={
-                            checkItems.length === data.length ? true : false
-                          }
+                          checked={checkedAll}
+                          onChange={handleChkAll}
                         />
                         전체 동의
                       </div>
@@ -360,24 +372,10 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                       <div className="labelStyle">
                         <input
                           type="checkbox"
-                          name="ageFourteen"
-                          onChange={(e) =>
-                            handleSingleCheck(e.target.checked, data.id)
-                          }
+                          checked={checked1}
+                          onChange={handleChk1}
                         />
-                        만 14세 이상입니다. (필수)
-                      </div>
-                    </div>
-                    <div className="checkWrap">
-                      <div className="labelStyle">
-                        <input
-                          type="checkbox"
-                          name="agreeEventEmail"
-                          onChange={(e) =>
-                            handleSingleCheck(e.target.checked, data.id)
-                          }
-                        />
-                        oneID 이용약관 동의 (필수)
+                        개인정보 이용 및 수집 동의 (필수)
                         <a
                           href="https://help.wanted.co.kr/hc/ko/articles/360040540111"
                           target="_blank"
@@ -391,12 +389,10 @@ function JoinModal({ joinOpen, setJoinOpen }) {
                       <div className="labelStyle">
                         <input
                           type="checkbox"
-                          name="agreeEventEmail"
-                          onChange={(e) =>
-                            handleSingleCheck(e.target.checked, data.id)
-                          }
+                          checked={checked2}
+                          onChange={handleChk2}
                         />
-                        개인정보 이용 및 수집 동의 (필수)
+                        이벤트 등 알림 정보 받기
                         <a
                           href="https://help.wanted.co.kr/hc/ko/articles/360040540111"
                           target="_blank"
