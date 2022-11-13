@@ -8,7 +8,6 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
   const [mobile, setMobile] = useState("");
   const [mobileValid, setMobileValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
-
   // 인증번호 타이머 부분
   const [code, setCode] = useState("");
   const [codeValid, setCodeValid] = useState(false);

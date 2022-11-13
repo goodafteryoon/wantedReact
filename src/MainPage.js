@@ -92,7 +92,7 @@ function EventCardList({ img, kind, title, onOff, info }) {
             <img src={card.img} alt="" />
           </div>
           <div className="eventItem_content">
-            <span className="onOffKind">{card.onOff}</span>
+            <span className={card.onOff && "onOffKind"}>{card.onOff}</span>
             <span className="eventKind">{card.kind}</span>
             <p className="eventTitle">{card.title}</p>
             <p className="eventInfo">{card.info}</p>
