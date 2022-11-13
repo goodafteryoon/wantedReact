@@ -178,7 +178,12 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
           ></div>
         </div>
       )}
-      <JoinModal joinOpen={joinOpen} setJoinOpen={setJoinOpen} />
+      <JoinModal
+        emails={email}
+        setEmail={setEmail}
+        joinOpen={joinOpen}
+        setJoinOpen={setJoinOpen}
+      />
     </>
   );
 }

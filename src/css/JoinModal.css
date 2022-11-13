@@ -25,6 +25,12 @@
   border: 1px solid #36f;
   outline: none;
 }
+.emailLogin {
+  background-color: #f2f4f7 !important;
+  border-color: transparent;
+  color: rgba(204, 204, 204, 0.961) !important;
+  font-weight: 600;
+}
 /* .labelStyle > .joinCheckAll {
   font-weight: 900;
 } */
@@ -46,9 +52,13 @@
   outline: none;
   border-color: #36f;
 }
-#codeGuide {
+.verificationCode {
   color: #36f;
+  margin: 5px 0px;
+  font-size: 10px;
+  font-weight: 700;
 }
+
 #timeCode {
   font-weight: 700;
   margin-top: 3px;
@@ -78,6 +88,7 @@
   padding-right: 15px;
   padding-left: 15px;
   border-radius: 5px;
+
   border: 1px solid #e1e2e3;
   background-color: #fff;
   font-size: 15px;
@@ -110,9 +121,17 @@
   border: 1px solid #e1e2e3;
   color: #36f;
 }
+.joinInput:disabled {
+  background-color: #f2f4f7 !important;
+  border-color: transparent;
+  color: rgba(204, 204, 204, 0.961) !important;
+}
 .mobileCode {
   position: relative;
   margin-top: 10px;
+}
+.inputWrap:nth-child(4) {
+  padding-bottom: 0px;
 }
 #mobileCodeSubmit {
   opacity: 0;
