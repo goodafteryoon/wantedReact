@@ -3,16 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./css/LoginModal.css";
 import JoinModal from "./JoinModal";
-
-const User = {
-  email: "test@example.com",
-  pw: "test2323@@@",
-};
+import { useSelector, useDispatch } from "react-redux";
+import {
+  loginOpen,
+  joinOpen,
+  modalClose,
+  searchOpen,
+  searchClose,
+} from "./modules/ModalStore";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
-function LoginModal({ signUpOpens, setSignUpOpens }) {
-  // 회원가입 모달창 노출 여부 state
-  const [joinOpen, setJoinOpen] = useState(false);
+function LoginModal() {
+  // 회원가입 모달창 노출 여부 state (리덕스 들어가면서 현재는 주석 처리)
+  // const [joinOpen, setJoinOpen] = useState(false);
+  const modalOpen = useSelector((state) => state.modalOpen);
+  const dispatch = useDispatch();
   // 로그인 로직
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(false);
@@ -39,7 +44,7 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
 
   return (
     <>
-      {signUpOpens && (
+      {modalOpen > 0 && (
         <div id="signUpModal">
           <div className="modalContainer">
             <div className="modalHeader">
@@ -51,7 +56,7 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
               />
               <button
                 className="modalCloseButton"
-                onClick={() => setSignUpOpens(false)}
+                onClick={() => dispatch(modalClose())}
                 id="signUpCloseButton"
                 type="button"
               >
@@ -95,7 +100,7 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
                     className="mailLoginBtn"
                     id="mailLogin"
                     type="submit"
-                    onClick={() => setJoinOpen(true)}
+                    onClick={() => dispatch(joinOpen())}
                     disabled={notAllow}
                   >
                     이메일로 계속하기
@@ -171,19 +176,10 @@ function LoginModal({ signUpOpens, setSignUpOpens }) {
               </div>
             </div>
           </div>
-          <div
-            className="modalBg"
-            id="signUpBg"
-            onClick={() => setSignUpOpens(false)}
-          ></div>
+          <div className="modalBg" id="signUpBg"></div>
         </div>
       )}
-      <JoinModal
-        emails={email}
-        setEmail={setEmail}
-        joinOpen={joinOpen}
-        setJoinOpen={setJoinOpen}
-      />
+      {modalOpen > 1 && <JoinModal emails={email} setEmail={setEmail} />}
     </>
   );
 }

@@ -5,19 +5,22 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./css/Header.css";
 import LoginModal from "./LoginModal";
 import SearchBar from "./SearchBar";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  loginOpen,
+  joinOpen,
+  modalClose,
+  searchOpen,
+  searchClose,
+} from "./modules/ModalStore";
 
 // 모달을 노출하는 헤더 컴포넌트
 function Header() {
-  // 모달창 노출 여부 state
+  // 모달창 노출 여부 state (리덕스 들어가면서 현재는 지움)
 
-  const [signUpOpen, setSignUpOpen] = useState(false); //0
-  const navigate = useNavigate();
-  const [searchOpen, setSearchOpen] = useState(false);
-
-  const goToMain = () => {
-    alert("메인 페이지로 이동합니다.");
-    navigate("/");
-  };
+  // 회원가입 모달창 띄우기
+  const modalOpen = useSelector((state) => state.modalOpen);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -33,13 +36,15 @@ function Header() {
                 objectFit="contain"
               />
             </button>
-            <div className="headerNavTitle" onClick={goToMain}>
-              <img
-                src="/image/wanted_BI_logotype.png"
-                height="17px"
-                width="74.38px"
-                alt="원티드 로고"
-              />
+            <div className="headerNavTitle">
+              <Link to={"/"}>
+                <img
+                  src="/image/wanted_BI_logotype.png"
+                  height="17px"
+                  width="74.38px"
+                  alt="원티드 로고"
+                />
+              </Link>
             </div>
           </div>
           <div className="headerNavItem">
@@ -70,13 +75,14 @@ function Header() {
           </div>
           <div className="headerNavItem">
             <div className="headerAsideList">
-              <button onClick={() => setSearchOpen(true)}>
+              <button>
+                {/*서치 온 클릭 있던 버튼 자리*/}
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </div>
             <div className="headerAsideList">
               <button
-                onClick={() => setSignUpOpen(true)}
+                onClick={() => dispatch(loginOpen())}
                 type="button"
                 className="signUpButton"
                 id="signUpBtn"
@@ -93,8 +99,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <LoginModal signUpOpens={signUpOpen} setSignUpOpens={setSignUpOpen} />
-      <SearchBar searchOpens={searchOpen} setSearchOpens={setSearchOpen} />
+      {modalOpen > 0 ? <LoginModal /> : null}
     </>
   );
 }
