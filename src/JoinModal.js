@@ -123,6 +123,7 @@ function JoinModal({ emails, setEmail }) {
   // 비밀번호 로직
   const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
+
   const checkPw = (str) => {
     if (!str) return true;
     let reg_password =
@@ -134,13 +135,6 @@ function JoinModal({ emails, setEmail }) {
     if (pw === str) return true;
     else return false;
   };
-
-  const handleJoin = (e) => {
-    e.preventDefault();
-    if(!name)
-  }
-
-
 
   // useSelector
   const modalOpen = useSelector((state) => state.reducer.modalOpen);

@@ -1,5 +1,3 @@
-// reducers/index.js
-
 /** root reducer */
 import { combineReducers } from "redux";
 import reducer from "./ModalStore";
