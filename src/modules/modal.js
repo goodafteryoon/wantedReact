@@ -4,11 +4,11 @@ import { createStore } from "redux"; // 스토어 = 저장소
 
 // 액션 타입 정의
 
-const LoginOpen = "ModalStore/LoginOpen";
-const JoinOpen = "ModalStore/JoinOpen";
-const ModalClose = "ModalStore/ModalClose";
-const SearchOpen = "ModalStore/SearchOpen";
-const SearchClose = "ModalStore/SearchClose";
+const LoginOpen = "modal/LoginOpen";
+const JoinOpen = "modal/JoinOpen";
+const ModalClose = "modal/ModalClose";
+const SearchOpen = "modal/SearchOpen";
+const SearchClose = "modal/SearchClose";
 
 // 액션 생성 함수
 
@@ -25,7 +25,7 @@ const initialStates = {
   searchFilter: false,
 };
 
-const reducer = (state = initialStates, action) => {
+const modal = (state = initialStates, action) => {
   switch (action.type) {
     case LoginOpen:
       return { ...state, modalOpen: 1 };
@@ -42,4 +42,4 @@ const reducer = (state = initialStates, action) => {
   }
 };
 
-export default reducer;
+export default modal;

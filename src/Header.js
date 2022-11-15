@@ -12,14 +12,14 @@ import {
   modalClose,
   searchOpen,
   searchClose,
-} from "./modules/ModalStore";
+} from "./modules/modal";
 
 // 모달을 노출하는 헤더 컴포넌트
 function Header() {
   // 모달창 노출 여부 state (리덕스 들어가면서 현재는 지움)
 
   // 회원가입 모달창 띄우기
-  const modalOpen = useSelector((state) => state.reducer.modalOpen);
+  const modalOpen = useSelector((state) => state.modal.modalOpen);
 
   const dispatch = useDispatch();
 
@@ -100,7 +100,7 @@ function Header() {
           </div>
         </div>
       </div>
-      {modalOpen > 0 ? <LoginModal /> : null}
+      {modalOpen >= 1 ? <LoginModal /> : null}
     </>
   );
 }

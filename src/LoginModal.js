@@ -10,13 +10,13 @@ import {
   modalClose,
   searchOpen,
   searchClose,
-} from "./modules/ModalStore";
+} from "./modules/modal";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
 function LoginModal() {
   // 회원가입 모달창 노출 여부 state (리덕스 들어가면서 현재는 주석 처리)
   // const [joinOpen, setJoinOpen] = useState(false);
-  const modalOpen = useSelector((state) => state.reducer.modalOpen);
+  const modalOpen = useSelector((state) => state.modal.modalOpen);
   const dispatch = useDispatch();
   // 로그인 로직
   const [email, setEmail] = useState("");
@@ -44,7 +44,7 @@ function LoginModal() {
 
   return (
     <>
-      {modalOpen > 0 && (
+      {modalOpen === 1 && (
         <div id="signUpModal">
           <div className="modalContainer">
             <div className="modalHeader">
@@ -183,7 +183,7 @@ function LoginModal() {
           ></div>
         </div>
       )}
-      {modalOpen > 1 && <JoinModal emails={email} setEmail={setEmail} />}
+      {modalOpen === 2 && <JoinModal emails={email} setEmail={setEmail} />}
     </>
   );
 }
