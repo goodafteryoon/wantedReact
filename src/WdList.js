@@ -10,6 +10,7 @@ import {
 import Header from "./Header";
 import JobCard from "./JobCard";
 import JobCardListJson from "./json/JobCardList.json";
+import { Link } from "react-router-dom";
 
 function WdList() {
   function TagBtn({ title, img }) {
@@ -145,7 +146,9 @@ function WdList() {
               <span className="bookmarkIcon">
                 <FontAwesomeIcon icon={faBookmark} />
               </span>
-              <span className="bookmarkTitle">북마크 모아보기</span>
+              <Link to="/bookmark">
+                <span className="bookmarkTitle">북마크 모아보기</span>
+              </Link>
               <span className="bookmarkIcon">
                 <FontAwesomeIcon icon={faChevronRight} />
               </span>

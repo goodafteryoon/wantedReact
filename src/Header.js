@@ -19,7 +19,8 @@ function Header() {
   // 모달창 노출 여부 state (리덕스 들어가면서 현재는 지움)
 
   // 회원가입 모달창 띄우기
-  const modalOpen = useSelector((state) => state.modalOpen);
+  const modalOpen = useSelector((state) => state.reducer.modalOpen);
+
   const dispatch = useDispatch();
 
   return (
@@ -75,7 +76,7 @@ function Header() {
           </div>
           <div className="headerNavItem">
             <div className="headerAsideList">
-              <button>
+              <button onClick={() => dispatch({ type: "LoginOpen" })}>
                 {/*서치 온 클릭 있던 버튼 자리*/}
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>

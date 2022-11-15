@@ -52,19 +52,7 @@
   outline: none;
   border-color: #36f;
 }
-.verificationCode {
-  color: #36f;
-  margin: 5px 0px;
-  font-size: 10px;
-  font-weight: 700;
-}
 
-#timeCode {
-  font-weight: 700;
-  margin-top: 3px;
-  font-size: 13px;
-  color: #fe415c;
-}
 #selected {
   font-size: 15px;
   left: 15px;
@@ -116,11 +104,29 @@
   min-width: 117px;
   padding: 16px 15px 14px;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   border: 1px solid #e1e2e3;
   color: #36f;
 }
+
+.mobileCode > .KoreaOnly > .joinInput {
+  display: flex;
+}
+
+.codeSubmit {
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  margin-left: 10px;
+  min-width: 117px;
+  padding: 16px 15px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #36f;
+}
+
 .joinInput:disabled {
   background-color: #f2f4f7 !important;
   border-color: transparent;

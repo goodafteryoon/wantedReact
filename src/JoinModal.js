@@ -1,61 +1,66 @@
 import React, { useState, useEffect } from "react";
 import "./css/JoinModal.css";
 import "./css/LoginModal.css";
+import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRegistered, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
+import {
+  loginOpen,
+  joinOpen,
+  modalClose,
+  searchOpen,
+  searchClose,
+} from "./modules/ModalStore";
+
+function JoinModal({ emails, setEmail }) {
+  // 전화번호 입력 양식 정규식 표현
   const [mobile, setMobile] = useState("");
   const [mobileValid, setMobileValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
-  // 인증번호 타이머 부분
+
+  const handleMobile = (e) => {
+    setMobile(e.target.value);
+    const regex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+    if (regex.test(e.target.value)) {
+      setMobileValid(true);
+    } else {
+      setMobileValid(false);
+    }
+  };
+
+  useEffect(() => {
+    // 휴대번호가 유효한지 추척해서 버튼 활성화
+    if (mobileValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  }, [mobileValid]);
+
+  // 인증번호 부분
   const [code, setCode] = useState("");
   const [codeValid, setCodeValid] = useState(false);
+  const [codeNotAllow, setCodeNotAllow] = useState(true);
 
-  // 비밀번호 정규식 부분
-  const [pw, setPw] = useState("");
-  const [pwValid, setPwValid] = useState(false);
-  const [pwNotAllow, setPwNotAllow] = useState(true);
-
-  useEffect(() => {
-    if (pwValid) {
-      setPwNotAllow(false);
-      return;
-    }
-    setPwNotAllow(true);
-  }, [pwValid]);
-
-  const handelPw = (e) => {
-    setPw(e.target.vlaue);
-    const pwRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (pwRegex.test(e.target.value)) {
-      setPwValid(true);
+  const handleCode = (num) => {
+    setCode(num.target.value);
+    const codeRegex = /^[+-]?\d*(\.?\d*)?$/;
+    if (codeRegex.test(num.target.value)) {
+      setCodeValid(true);
     } else {
-      setPwValid(false);
+      setCodeValid(false);
     }
   };
 
-  // 비밀번호 확인 부분
-  const [pwConfirm, setPwConfirm] = useState("");
-  const [pwConfirmValid, setPwConfirmValid] = useState("");
-  const [pwConfirmNotAllow, setPwConfirmNotAllow] = useState(false);
-
-  const handlePwConfirm = (e) => {
-    setPwConfirm(e.target.value);
-    if (e.target.value === pw) {
-      setPwConfirmValid(true);
-    } else {
-      setPwConfirmValid(false);
-    }
-  };
-
+  // 인증번호가 유효한지 추적해서 버튼 활성화
   useEffect(() => {
-    if (pwConfirmValid) {
-      setPwConfirmNotAllow(false);
+    if (codeValid) {
+      setCodeNotAllow(false);
       return;
     }
-    setPwConfirmNotAllow(true);
-  }, [pwConfirmValid]);
+    setCodeNotAllow(true);
+  }, [codeValid]);
 
   // 동의사항 체크 부분
   const [checked1, setChecked1] = useState(false);
@@ -113,40 +118,50 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
 
   // end 동의사항 체크 부분
 
-  // 전화번호 입력 양식 정규식 표현
-  const handleMobile = (e) => {
-    setMobile(e.target.value);
-    const regex = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
-    if (regex.test(e.target.value)) {
-      setMobileValid(true);
-    } else {
-      setMobileValid(false);
-    }
-  };
+  // 비밀번호 로직
+  const [pw, setPw] = useState("");
+  const [pwValid, setPwValid] = useState(false);
+  const [pwNotAllow, setPwNotAllow] = useState(true);
 
   useEffect(() => {
-    // 비밀번호가 유효한지 추척해서 버튼 활성화
-    if (mobileValid) {
+    if (pw) {
       setNotAllow(false);
       return;
     }
     setNotAllow(true);
-  }, [mobileValid]);
+  }, [pw]);
+
+  const handlePw = (e) => {
+    setPw(e.target.value);
+    const regex =
+      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    if (regex.test(e.target.value)) {
+      setPwValid(true);
+    } else {
+      setPwValid(false);
+    }
+  };
+
+  // useSelector
+  const modalOpen = useSelector((state) => state.reducer.modalOpen);
+  const dispatch = useDispatch();
 
   return (
     <>
-      {joinOpen && (
+      {modalOpen > 1 && (
         <div className="joinModal" id="joinModal">
           <div className="modalContainer">
             <div className="modalHeader">
               회원가입
               <button
                 className="modalCloseButton"
-                onClick={() => setJoinOpen(false)}
                 id="joinCloseButton"
                 type="button"
               >
-                <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  onClick={() => dispatch(modalClose())}
+                ></FontAwesomeIcon>
               </button>
             </div>
             <div className="modalBody" id="joinModalBody">
@@ -208,13 +223,14 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
                           name="mobileCode"
                           className="joinInput"
                           placeholder="인증번호를 입력해 주세요."
+                          onChange={handleCode}
                           disabled={notAllow}
                         />
-                        <div className="modalError">
-                          {!codeValid && code.length > 0 && (
-                            <div>올바른 인증번호를 입력해주세요.</div>
+                        <button className="codeSubmit" disabled={codeNotAllow}>
+                          {codeValid && code.length > 0 && (
+                            <span>인증하기</span>
                           )}
-                        </div>
+                        </button>
                         <button type="button" id="mobileCodeSubmit" disabled>
                           확인
                         </button>
@@ -231,12 +247,12 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
                         className="joinInput"
                         type="password"
                         placeholder="비밀번호를 입력해 주세요."
-                        vlaue={pw}
-                        onChange={handelPw}
+                        value={pw}
+                        onChange={handlePw}
                       />
                     </div>
                     <div className="modalError" id="pwError">
-                      {!pwValid && <div>올바르지 않는 비밀번호입니다.</div>}
+                      {<div>올바르지 않는 비밀번호입니다.</div>}
                     </div>
                   </div>
                   <div className="inputWrap">
@@ -245,9 +261,6 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
                         name="passwordAgain"
                         className="joinInput"
                         type="password"
-                        vlaue={pwConfirm}
-                        onChange={handlePwConfirm}
-                        disabled={pwNotAllow}
                         placeholder="비밀번호를 다시 한번 입력해 주세요."
                       />
                       <div className="inputGuide">
@@ -256,9 +269,7 @@ function JoinModal({ joinOpen, setJoinOpen, emails, setEmail }) {
                       </div>
                     </div>
                     <div className="modalError" id="pwAgainError">
-                      {!pwConfirmValid && pwConfirm.length > 0 && (
-                        <div>비밀번호가 같지 않습니다.</div>
-                      )}
+                      {<div>비밀번호가 같지 않습니다.</div>}
                     </div>
                   </div>
                 </form>
