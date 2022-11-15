@@ -14,6 +14,8 @@ import {
 } from "./modules/ModalStore";
 
 function JoinModal({ emails, setEmail }) {
+  const [name, setName] = useState("");
+
   // 전화번호 입력 양식 정규식 표현
   const [mobile, setMobile] = useState("");
   const [mobileValid, setMobileValid] = useState(false);
@@ -120,27 +122,25 @@ function JoinModal({ emails, setEmail }) {
 
   // 비밀번호 로직
   const [pw, setPw] = useState("");
-  const [pwValid, setPwValid] = useState(false);
-  const [pwNotAllow, setPwNotAllow] = useState(true);
-
-  useEffect(() => {
-    if (pw) {
-      setNotAllow(false);
-      return;
-    }
-    setNotAllow(true);
-  }, [pw]);
-
-  const handlePw = (e) => {
-    setPw(e.target.value);
-    const regex =
-      /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    if (regex.test(e.target.value)) {
-      setPwValid(true);
-    } else {
-      setPwValid(false);
-    }
+  const [pwConfirm, setPwConfirm] = useState("");
+  const checkPw = (str) => {
+    if (!str) return true;
+    let reg_password =
+      /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+    return reg_password.test(str);
   };
+  const checkPWAgain = (str) => {
+    if (!str) return true;
+    if (pw === str) return true;
+    else return false;
+  };
+
+  const handleJoin = (e) => {
+    e.preventDefault();
+    if(!name)
+  }
+
+
 
   // useSelector
   const modalOpen = useSelector((state) => state.reducer.modalOpen);
@@ -248,11 +248,13 @@ function JoinModal({ emails, setEmail }) {
                         type="password"
                         placeholder="비밀번호를 입력해 주세요."
                         value={pw}
-                        onChange={handlePw}
+                        onChange={(e) => {
+                          setPw(e.target.value);
+                        }}
                       />
                     </div>
                     <div className="modalError" id="pwError">
-                      {<div>올바르지 않는 비밀번호입니다.</div>}
+                      {!checkPw(pw) && <div>올바르지 않는 비밀번호입니다.</div>}
                     </div>
                   </div>
                   <div className="inputWrap">
@@ -261,6 +263,8 @@ function JoinModal({ emails, setEmail }) {
                         name="passwordAgain"
                         className="joinInput"
                         type="password"
+                        value={pwConfirm}
+                        onChange={(e) => setPwConfirm(e.target.value)}
                         placeholder="비밀번호를 다시 한번 입력해 주세요."
                       />
                       <div className="inputGuide">
@@ -269,7 +273,9 @@ function JoinModal({ emails, setEmail }) {
                       </div>
                     </div>
                     <div className="modalError" id="pwAgainError">
-                      {<div>비밀번호가 같지 않습니다.</div>}
+                      {!checkPWAgain(pwConfirm) && (
+                        <div>비밀번호가 서로 일치하지 않습니다.</div>
+                      )}
                     </div>
                   </div>
                 </form>
