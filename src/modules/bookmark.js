@@ -1,7 +1,3 @@
-import React from "react";
-import { Provider, useSelector, useDispatch } from "react"; // 사용할 3가지 + 1가지(스토어)
-import { createStore } from "redux"; // 스토어 = 저장소
-
 // 2번 액션 타입 정의 : 어떤 액션이 필요하냐, 북마크 추가 삭제
 
 const ADD_BOOKMARK = "bookmark/ADD_BOOKMARK";

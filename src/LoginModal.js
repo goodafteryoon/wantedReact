@@ -10,7 +10,9 @@ import {
   modalClose,
   searchOpen,
   searchClose,
+  passwordOpen,
 } from "./modules/modal";
+import Password from "./Password";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
 function LoginModal() {
@@ -22,6 +24,8 @@ function LoginModal() {
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
+
+  let [savedLoginId, setSavedLoginId] = useState("");
 
   useEffect(() => {
     if (emailValid) {
@@ -37,8 +41,20 @@ function LoginModal() {
       /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     if (regex.test(e.target.value)) {
       setEmailValid(true);
+      setSavedLoginId(e.target.value);
     } else {
       setEmailValid(false);
+    }
+  };
+
+  let storage = window.localStorage;
+
+  const emailKeep = () => {
+    if (savedLoginId === storage.getItem("ID")) {
+      dispatch(passwordOpen());
+    } else {
+      dispatch(joinOpen());
+      storage.setItem("ID", savedLoginId);
     }
   };
 
@@ -100,7 +116,7 @@ function LoginModal() {
                     className="mailLoginBtn"
                     id="mailLogin"
                     type="submit"
-                    onClick={() => dispatch(joinOpen())}
+                    onClick={emailKeep}
                     disabled={notAllow}
                   >
                     이메일로 계속하기
@@ -184,6 +200,7 @@ function LoginModal() {
         </div>
       )}
       {modalOpen === 2 && <JoinModal emails={email} setEmail={setEmail} />}
+      {modalOpen === 3 && <Password />}
     </>
   );
 }

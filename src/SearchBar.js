@@ -4,6 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import JobCardListJson from "./json/JobCardList.json";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  loginOpen,
+  joinOpen,
+  modalClose,
+  searchOpen,
+  searchClose,
+} from "./modules/modal";
 
 function SearchBar({ searchOpens, setSearchOpens }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,10 +23,13 @@ function SearchBar({ searchOpens, setSearchOpens }) {
       navigate(`/search?term=${searchTerm}`);
     }
   };
+  const dispatch = useDispatch();
+
+  const searchFilter = useSelector((state) => state.modal.searchFilter);
 
   return (
     <>
-      {searchOpens && (
+      {searchFilter && (
         <div id="searchBar">
           <div className="searchWrapper">
             <div className="searchFormSection">
@@ -56,7 +67,7 @@ function SearchBar({ searchOpens, setSearchOpens }) {
           </div>
           <div
             className="searchBarBg"
-            onClick={() => setSearchOpens(false)}
+            onClick={() => dispatch(searchClose())}
           ></div>
         </div>
       )}

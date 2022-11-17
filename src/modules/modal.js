@@ -9,12 +9,14 @@ const JoinOpen = "modal/JoinOpen";
 const ModalClose = "modal/ModalClose";
 const SearchOpen = "modal/SearchOpen";
 const SearchClose = "modal/SearchClose";
+const PasswordOpen = "modal/PasswordOpen";
 
 // 액션 생성 함수
 
 export const loginOpen = () => ({ type: LoginOpen });
 export const joinOpen = () => ({ type: JoinOpen });
 export const modalClose = () => ({ type: ModalClose });
+export const passwordOpen = () => ({ type: PasswordOpen });
 export const searchOpen = () => ({ type: SearchOpen });
 export const searchClose = () => ({ type: SearchClose });
 
@@ -31,6 +33,8 @@ const modal = (state = initialStates, action) => {
       return { ...state, modalOpen: 1 };
     case JoinOpen:
       return { ...state, modalOpen: 2 };
+    case PasswordOpen:
+      return { ...state, modalOpen: 3 };
     case ModalClose:
       return { ...state, modalOpen: 0 };
     case SearchOpen:
