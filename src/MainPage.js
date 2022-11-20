@@ -119,6 +119,18 @@ function QuickBtn({ icon, name }) {
   );
 }
 
+function ListBtn({ title }) {
+  return (
+    <>
+      {MainPageJson.listButtonList.map((btn) => (
+        <button className="list__button">
+          <span className="list-button">{btn.title}</span>
+        </button>
+      ))}
+    </>
+  );
+}
+
 function MainPage() {
   return (
     <>
@@ -136,33 +148,7 @@ function MainPage() {
               </button>
             </div>
             <div className="listContainer">
-              <button className="list__button">
-                <span className="list-button">커리어고민</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">인간관계</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">취업/이직</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">IT/기술</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">라이프스타일</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">조직문화</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">리더십</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">회사생활</span>
-              </button>
-              <button className="list__button">
-                <span className="list-button">개발</span>
-              </button>
+              <ListBtn />
             </div>
             <div className="contentContainer">
               <CareerCardList />
