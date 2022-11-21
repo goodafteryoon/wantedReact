@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faEllipsis,
+} from "@fortawesome/free-solid-svg-icons";
 import "./css/Header.css";
 import LoginModal from "./LoginModal";
 import SearchBar from "./SearchBar";
@@ -51,7 +54,16 @@ function Header() {
                   />
                 </Link>
               </div>
+              <button
+                onClick={() => dispatch(loginOpen())}
+                type="button"
+                className="mediaVersignUpBtn"
+                id="mediaVersignUpBtn"
+              >
+                회원가입하기
+              </button>
             </div>
+
             <div className="headerNavItem">
               <div className="headerNavList">
                 <Link to="/wdlist">채용</Link>
@@ -87,6 +99,9 @@ function Header() {
                   <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
               </div>
+              <button className="mediaVerAsideBtn">
+                <FontAwesomeIcon icon={faEllipsis} />
+              </button>
               <div className="headerAsideList">
                 <button
                   onClick={() => dispatch(loginOpen())}
