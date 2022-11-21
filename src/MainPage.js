@@ -14,6 +14,7 @@ import {
   faSliders,
 } from "@fortawesome/free-solid-svg-icons";
 import MainPageJson from "./json/MainPage.json";
+import styled from "styled-components";
 
 function CareerCardList() {
   function CareerCard({ src, imgAlt, title, content, icon, iconAlt, author }) {
@@ -119,7 +120,7 @@ function QuickBtn({ icon, name }) {
   );
 }
 
-function ListBtn({ title }) {
+function InterestTagSlideBtn({ title }) {
   return (
     <>
       {MainPageJson.listButtonList.map((btn) => (
@@ -130,6 +131,11 @@ function ListBtn({ title }) {
     </>
   );
 }
+
+const SectionTitle = styled.h2`
+  font-size: 20px;
+  font-weight: 900;
+`;
 
 function MainPage() {
   return (
@@ -142,13 +148,13 @@ function MainPage() {
         <div className="careerSection">
           <div className="careerWrapper">
             <div className="titleContainer">
-              <h2>나에게 필요한 커리어 인사이트</h2>
+              <SectionTitle>나에게 필요한 커리어 인사이트</SectionTitle>
               <button className="questionButton" type="button">
                 <FontAwesomeIcon icon={faCircleQuestion} opacity="0.4" />
               </button>
             </div>
             <div className="listContainer">
-              <ListBtn />
+              <InterestTagSlideBtn />
             </div>
             <div className="contentContainer">
               <CareerCardList />
@@ -166,7 +172,7 @@ function MainPage() {
         <div className="articleSection">
           <div className="articleWrapper">
             <div className="titleContainer">
-              <h2>3분만에 읽는 Wanted+ 아티클</h2>
+              <SectionTitle>3분만에 읽는 Wanted+ 아티클</SectionTitle>
             </div>
             <div className="subtitleContainer">
               <span className="article_title">아티클 전체보기</span>
@@ -182,7 +188,7 @@ function MainPage() {
         <div className="vodSection">
           <div className="vodWrapper">
             <div className="titleContainer">
-              <h2>직장인을 위한 Wanted+ VOD</h2>
+              <SectionTitle>직장인을 위한 Wanted+ VOD</SectionTitle>
             </div>
             <div className="subtitleContainer">
               <span className="article_title">VOD 전체보기</span>
@@ -207,7 +213,7 @@ function MainPage() {
         <div className="eventSection">
           <div className="eventWrapper">
             <div className="titleContainer">
-              <h2>커리어 성장을 위한 맞춤 이벤트</h2>
+              <SectionTitle>커리어 성장을 위한 맞춤 이벤트</SectionTitle>
             </div>
             <div className="subtitleContainer">
               <span className="article_title">이벤트 전체보기</span>

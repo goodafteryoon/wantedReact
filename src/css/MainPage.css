@@ -14,10 +14,10 @@
   display: flex;
   justify-content: center;
 }
-.titleContainer h2 {
+/* .titleContainer h2 {
   font-size: 20px;
   font-weight: 900;
-}
+} */
 .questionButton {
   margin-left: 10px;
   font-size: 23px;

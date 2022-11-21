@@ -10,17 +10,63 @@ import {
 import Header from "./Header";
 import JobCard from "./JobCard";
 import JobCardListJson from "./json/JobCardList.json";
+import WdListJson from "./json/WdList.json";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 function WdList() {
-  function TagBtn({ title, img }) {
+  const StyledTagBtn = styled.div`
+    font-size: 13px;
+    font-weight: 400;
+    background: ${(props) => props.background || "rgb(242, 251, 245)"};
+    height: 32px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    line-height: 16px;
+    align-items: center;
+    margin-right: 8px;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+  `;
+  // props 를 () 소괄호 파라미터로 넣어서 props.~ 로 전달한 경우
+  function TagBtn(props) {
     return (
-      <div className="tagButton">
+      <StyledTagBtn background={props.background}>
         <button type="button">
-          {title}
-          <img src={img} alt={title} />
+          {props.title}
+          <img src={props.img} alt={props.title} />
         </button>
-      </div>
+      </StyledTagBtn>
+    );
+  }
+
+  // props를 {} 중괄호 안에 바로 넣어서 전달한 경우
+  // function TagBtn({ title, img }) {
+  //   return (
+  //     <div className="tagButton">
+  //       <button type="button">
+  //         {title}
+  //         <img src={img} alt={title} />
+  //       </button>
+  //     </div>
+  //   );
+  // }
+
+  function TagBtnList() {
+    return (
+      <>
+        {WdListJson.tagBtnList.map((tagBtn) => (
+          <TagBtn
+            title={tagBtn.title}
+            img={tagBtn.img}
+            background={tagBtn.background}
+          />
+        ))}
+      </>
     );
   }
 
@@ -105,38 +151,7 @@ function WdList() {
               </div>
             </div>
             <div className="container">
-              <TagBtn
-                title="연봉이 최고의 복지"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F634f02e0-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="퇴사율 10% 이하"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F7d3cdb3c-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="급성장 중"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F37dacf86-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="병역특례"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F6eda33d2-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="50인 이하"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F3a965d18-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="50인 이상"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F4cec3244-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="업력 5년 이상"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F45bb9794-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75"
-              />
-              <TagBtn
-                title="유연근무"
-                img="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F827f6146-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75"
-              />
+              <TagBtnList />
             </div>
           </div>
         </div>

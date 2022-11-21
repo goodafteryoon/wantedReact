@@ -198,7 +198,7 @@ button {
   z-index: 1;
 }
 /* 3번째 filterItem */
-.tagButton {
+/* .tagButton { 전부 스타일드 컴포넌트 안으로 넣었다.
   font-size: 13px;
   font-weight: 400;
   background: rgb(242, 251, 245);
@@ -235,7 +235,7 @@ button {
   height: 16px;
   margin-left: 5px;
   vertical-align: middle;
-}
+} */
 
 /* jobList 섹션 */
 .jobListSection {

@@ -30,7 +30,13 @@ function Password() {
       dispatch(modalClose());
     } else {
       dispatch(passwordOpen());
+      handlePwError(false);
     }
+  };
+
+  const handlePwError = (str) => {
+    if (pw === str) return true;
+    else return false;
   };
 
   const dispatch = useDispatch();
@@ -66,7 +72,9 @@ function Password() {
                   />
                 </div>
                 <div className="modalError" id="emailError">
-                  {<div>비밀번호가 일치하지 않습니다.</div>}
+                  {!handlePwError(pw) && (
+                    <div>비밀번호가 일치하지 않습니다.</div>
+                  )}
                 </div>
               </div>
               <div>
