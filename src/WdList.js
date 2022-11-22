@@ -14,24 +14,25 @@ import WdListJson from "./json/WdList.json";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const StyledTagBtn = styled.div`
+  font-size: 13px;
+  font-weight: 400;
+  background: ${(props) => props.background || "rgb(242, 251, 245)"};
+  height: 32px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  line-height: 16px;
+  align-items: center;
+  margin-right: 8px;
+  img {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+`;
+
 function WdList() {
-  const StyledTagBtn = styled.div`
-    font-size: 13px;
-    font-weight: 400;
-    background: ${(props) => props.background || "rgb(242, 251, 245)"};
-    height: 32px;
-    padding: 8px 14px;
-    border-radius: 20px;
-    line-height: 16px;
-    align-items: center;
-    margin-right: 8px;
-    img {
-      width: 16px;
-      height: 16px;
-      margin-left: 5px;
-      vertical-align: middle;
-    }
-  `;
   // props 를 () 소괄호 파라미터로 넣어서 props.~ 로 전달한 경우
   function TagBtn(props) {
     return (

@@ -18,6 +18,7 @@ import Password from "./Password";
 function LoginModal() {
   // 회원가입 모달창 노출 여부 state (리덕스 들어가면서 현재는 주석 처리)
   // const [joinOpen, setJoinOpen] = useState(false);
+  // 유즈셀렉터 : 보여주는 것
   const modalOpen = useSelector((state) => state.modal.modalOpen);
   const dispatch = useDispatch();
   // 로그인 로직
@@ -51,7 +52,7 @@ function LoginModal() {
 
   const emailKeep = () => {
     if (savedLoginId === storage.getItem("ID")) {
-      dispatch(passwordOpen());
+      dispatch(passwordOpen()); // 실행시키는 거
     } else {
       dispatch(joinOpen());
       storage.setItem("ID", savedLoginId);
@@ -196,6 +197,8 @@ function LoginModal() {
             className="modalBg"
             id="signUpBg"
             onClick={() => dispatch(modalClose())}
+
+            // 디스패치 실행시키는 것
           ></div>
         </div>
       )}

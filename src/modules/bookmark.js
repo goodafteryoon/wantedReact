@@ -18,7 +18,7 @@ const bookmark = (state = initialStates, action) => {
       return { ...state, bookmarkList: state.bookmarkList.concat(action.id) };
     case REMOVE_BOOKMARK:
       return {
-        ...state,
+        ...state, // 이전 상태를 받아와서 새로 저장
         bookmarkList: state.bookmarkList.filter((id) => id !== action.id),
       };
     default:

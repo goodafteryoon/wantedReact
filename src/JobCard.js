@@ -14,6 +14,7 @@ function JobCard({
   country,
   reward,
 }) {
+  // 유즈 셀렉터 : 보여주는 것, 디스패치 : 실행시키는 것으로 생각하고 만들자
   const dispatch = useDispatch(); // 사용할 dispatch 함수를 명시 리듀서를 쓸 수 있게 해주는 것
   const bookmarkList = useSelector((state) => state.bookmark.bookmarkList);
   function Money(numbers) {
