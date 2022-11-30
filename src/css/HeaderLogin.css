@@ -1,3 +1,12 @@
 .loginHeaderBtn {
-  font-size: 15px;
+  font-size: 18px;
+}
+/* .headerAsideList {
+  border: 1px solid blue;
+} */
+.loginHeaderIconBell {
+  margin-left: 20px;
+}
+.loginHeaderIconUser {
+  font-size: 25px;
 }
