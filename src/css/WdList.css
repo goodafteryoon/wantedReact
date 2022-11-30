@@ -36,16 +36,7 @@ button {
 }
 
 /* main */
-.main {
-  flex-grow: 1; /* 헤더와 푸터 사이에 메인 꽉 차도록 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  /* background-color: yellowgreen; */
-  padding-top: 50px; /* 헤더에 fixed 속성을 주면 그 높이만큼 padding top을 주어야 한다 */
-}
+
 /* job 서치 섹션 */
 .jobSearchSection {
   width: 100%;
@@ -256,9 +247,10 @@ button {
   padding-top: 15px;
 }
 .bookmarkTitle {
-  color: blue;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  padding: 50px 0 20px;
   /* line-height: 24px; */
 }
 .bookmarkIcon {

@@ -1,0 +1,127 @@
+.resumeMainWrapper {
+  width: 1060px;
+  /* border: 2px solid blue; */
+}
+.asideBtnWrapper {
+  position: relative;
+  width: 100%;
+  height: 103px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #2b4bc8;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.carrerConnectBannerBtn {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 32px 40px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 26px;
+  color: #fff;
+  z-index: 1;
+}
+.carrerConnectBannerBtnTitle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carrerConnectBannerBtnTitle > strong {
+  border-radius: 20px;
+  background-color: #fff;
+  color: #2b4bc8;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 600;
+  margin-left: auto;
+  padding: 11px 20px;
+}
+.carrerConnectBannerBtnTitle > picture > img,
+.carrerConnectBannerBtnTitle > picture > source {
+  z-index: -1;
+  position: absolute;
+  right: 200px;
+  top: 10px;
+  width: 30%;
+  height: 80%;
+}
+
+.resumeHeader {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+.resumeHeader > h4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+  padding: 15px 0;
+  color: #333;
+  word-wrap: break-word;
+}
+.resumeHeader > a {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 15px 0;
+  color: #36f !important;
+  display: flex;
+  align-items: center;
+}
+.resumeListWrapper {
+  display: flex;
+  /* border: 3px solid plum; */
+}
+.resumeListItem {
+  height: 190px;
+  width: calc(25% - 20px);
+  margin-bottom: 20px;
+  margin-right: 20px;
+  position: relative;
+  border: 2px solid #dbdbdb;
+  background-color: #fff;
+}
+.resumeListAddItem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.resumeListAddItemIconUpload,
+.resumeListAddItemIconWrite {
+  cursor: pointer;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+}
+.resumeListAddItemIconWrite {
+  background-color: #36f;
+  color: #fff;
+}
+.resumeListAddItemIconUpload {
+  background-color: #e1e2e3;
+  color: #666;
+}
+.resumeListAddItem > p {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-align: center;
+  color: #333;
+  margin: 20px 0 0;
+}

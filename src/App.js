@@ -7,6 +7,7 @@ import Wd from "./Wd";
 import Search from "./Search";
 import Bookmark from "./Bookmark";
 import Password from "./Password";
+import Resume from "./Resume";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/bookmark" element={<Bookmark />} />
         <Route path="/pw" element={<Password />} />
+        <Route path="/cv/list" element={<Resume />} />
       </Routes>
     </BrowserRouter>
   );

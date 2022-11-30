@@ -75,7 +75,7 @@ function Header() {
                 <a href="https://www.wanted.co.kr/salary">직군별 연봉</a>
               </div>
               <div className="headerNavList">
-                <a href="https://www.wanted.co.kr/cv/intro">이력서</a>
+                <Link to="/cv/list">이력서</Link>
               </div>
               <div className="headerNavList">
                 <a href="https://www.wanted.co.kr/community">
