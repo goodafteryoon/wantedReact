@@ -14,6 +14,13 @@ import {
 } from "./modules/modal";
 import Password from "./Password";
 
+import {
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { authService } from "fbase";
+
 // join 모달을 노출하는 signUpModal 컴포넌트
 function LoginModal() {
   // 회원가입 모달창 노출 여부 state (리덕스 들어가면서 현재는 주석 처리)
@@ -57,6 +64,18 @@ function LoginModal() {
       dispatch(joinOpen());
       storage.setItem("ID", savedLoginId);
     }
+  };
+
+  // 소셜 로그인
+  const onSocialClick = async (event) => {
+    const name = event.target.name;
+    let provider;
+    if (name === "google") {
+      provider = new GoogleAuthProvider();
+    } else if (name === "github") {
+      provider = new GithubAuthProvider();
+    }
+    await signInWithPopup(authService, provider);
   };
 
   return (
@@ -154,12 +173,14 @@ function LoginModal() {
                           alt="구글"
                           width="50"
                           height="50"
+                          onClick={onSocialClick}
+                          name="google"
                         />
                       </button>
                       <div className="modalSnsTitle">Google</div>
                     </div>
                     <div className="modalSns">
-                      <button>
+                      <button onClick={onSocialClick} name="github">
                         <img
                           src="/image/apple.jpeg"
                           alt="애플"
