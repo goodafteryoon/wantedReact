@@ -1,5 +1,5 @@
 /* main */
-. .mainWrapper {
+.mainWrapper {
   width: 1060px; /* 컨테이너 기준 너비 */
   display: flex;
   justify-content: space-between;
