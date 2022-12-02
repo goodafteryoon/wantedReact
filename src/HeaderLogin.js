@@ -21,6 +21,9 @@ import {
   searchOpen,
   searchClose,
 } from "./modules/modal";
+import { getAuth, signOut } from "firebase/auth";
+import { authService } from "fbase";
+
 function HeaderLogin() {
   const [savedLoginId, setSavedLoginId] = useState();
   const [savedLoginPassword, setSavedLoginPassword] = useState();
@@ -31,11 +34,15 @@ function HeaderLogin() {
 
   const login = useSelector((state) => state.login.login);
 
+  const navigate = useNavigate();
+
   const logoutBtn = () => {
     storage.clear();
     setSavedLoginId(storage.getItem("ID"));
     setSavedLoginPassword(storage.getItem("PW"));
     dispatch(logIN());
+    authService.signOut();
+    navigate("/");
   };
 
   return (

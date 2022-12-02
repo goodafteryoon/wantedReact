@@ -12,8 +12,13 @@ import {
   searchOpen,
   searchClose,
 } from "./modules/modal";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
-function JoinModal({ emails, setEmail }) {
+function JoinModal({ email, setEmail }) {
   // 전화번호 입력 양식 정규식 표현
   const [mobile, setMobile] = useState("");
   const [mobileValid, setMobileValid] = useState(false);
@@ -119,7 +124,7 @@ function JoinModal({ emails, setEmail }) {
   // end 동의사항 체크 부분
 
   // 비밀번호 로직
-  const [pw, setPw] = useState("");
+  // const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
 
   const checkPw = (str) => {
@@ -130,7 +135,7 @@ function JoinModal({ emails, setEmail }) {
   };
   const checkPWAgain = (str) => {
     if (!str) return true;
-    if (pw === str) return true;
+    if (password === str) return true;
     else return false;
   };
 
@@ -147,6 +152,23 @@ function JoinModal({ emails, setEmail }) {
   const joinUser = () => {
     storage.setItem("PW", loginPassword);
     setSavedLoginPassword(storage.getItem("PW"));
+  };
+  const [newAccount, setNewAccount] = useState(true);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const auth = getAuth();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      if (newAccount) {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } else {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   // useSelector
@@ -180,8 +202,9 @@ function JoinModal({ emails, setEmail }) {
                       <div className="inputBody">
                         <input
                           className="emailLogin"
+                          name="email"
                           type="mail"
-                          value={emails}
+                          value={email}
                           disabled
                         />
                       </div>
@@ -267,15 +290,15 @@ function JoinModal({ emails, setEmail }) {
                           className="joinInput"
                           type="password"
                           placeholder="비밀번호를 입력해 주세요."
-                          value={pw}
+                          value={password}
                           onChange={(e) => {
-                            setPw(e.target.value);
+                            setPassword(e.target.value);
                             setLoginPassword(e.target.value);
                           }}
                         />
                       </div>
                       <div className="modalError" id="pwError">
-                        {!checkPw(pw) && (
+                        {!checkPw(password) && (
                           <div>올바르지 않는 비밀번호입니다.</div>
                         )}
                       </div>

@@ -55,9 +55,9 @@ function ArticleCardList({ src, imgAlt, title, tag }) {
   return (
     <>
       {MainPageJson.articleCardList.map((card) => (
-        <div className="articleContentItem">
+        <div className="articleContentItem" key={card.id}>
           <div className="careerCardThumbnail">
-            <img src={card.src} alt={card.imgAlt} key={card.id} />
+            <img src={card.src} alt={card.imgAlt} />
           </div>
           <p className="careerCardTitle">{card.title}</p>
           <p className="cardHashtag">{card.tag}</p>
@@ -71,9 +71,9 @@ function VodCardList({ img, imgAlt, author, title, subTitle }) {
   return (
     <>
       {MainPageJson.vodCardList.map((card) => (
-        <div className="articleContentItem">
+        <div className="articleContentItem" key={card.id}>
           <div className="careerCardThumbnail">
-            <img src={card.img} alt={card.imgAlt} key={card.id} />
+            <img src={card.img} alt={card.imgAlt} />
           </div>
           <p className="careerCardName">{card.author}</p>
           <p className="careerCardTitle">{card.title}</p>
@@ -88,7 +88,7 @@ function EventCardList({ img, kind, title, onOff, info }) {
   return (
     <>
       {MainPageJson.eventCardList.map((card) => (
-        <div className="eventContentItem">
+        <div className="eventContentItem" key={card.id}>
           <div className="eventCardThumbnail">
             <img src={card.img} alt="" />
           </div>

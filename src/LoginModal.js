@@ -15,11 +15,15 @@ import {
 import Password from "./Password";
 
 import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { authService } from "fbase";
+import { logIN } from "modules/login";
 
 // join 모달을 노출하는 signUpModal 컴포넌트
 function LoginModal() {
@@ -67,6 +71,7 @@ function LoginModal() {
   };
 
   // 소셜 로그인
+
   const onSocialClick = async (event) => {
     const name = event.target.name;
     let provider;
@@ -75,7 +80,14 @@ function LoginModal() {
     } else if (name === "github") {
       provider = new GithubAuthProvider();
     }
-    await signInWithPopup(authService, provider);
+    await signInWithPopup(authService, provider).then((result) => {
+      const user = result.user;
+      console.log(user);
+      alert(`${user.displayName}님 환영합니다!`);
+      dispatch(modalClose());
+      setEmail(user.email);
+      dispatch(logIN());
+    });
   };
 
   return (
@@ -118,6 +130,7 @@ function LoginModal() {
                   <div className="inputBody">
                     <input
                       className="userEmail"
+                      name="email"
                       type="mail"
                       id="email"
                       placeholder="이메일을 입력해 주세요."
@@ -180,15 +193,16 @@ function LoginModal() {
                       <div className="modalSnsTitle">Google</div>
                     </div>
                     <div className="modalSns">
-                      <button onClick={onSocialClick} name="github">
+                      <button onClick={onSocialClick}>
                         <img
-                          src="/image/apple.jpeg"
-                          alt="애플"
+                          src="/image/github.png"
+                          alt="깃허브"
                           width="50"
                           height="50"
+                          name="github"
                         />
                       </button>
-                      <div className="modalSnsTitle">Apple</div>
+                      <div className="modalSnsTitle">Github</div>
                     </div>
                   </div>
                 </div>
@@ -223,7 +237,7 @@ function LoginModal() {
           ></div>
         </div>
       )}
-      {modalOpen === 2 && <JoinModal emails={email} setEmail={setEmail} />}
+      {modalOpen === 2 && <JoinModal email={email} setEmail={setEmail} />}
       {modalOpen === 3 && <Password />}
     </>
   );
