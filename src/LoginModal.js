@@ -71,7 +71,6 @@ function LoginModal() {
   };
 
   // 소셜 로그인
-
   const onSocialClick = async (event) => {
     const name = event.target.name;
     let provider;

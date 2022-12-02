@@ -39,9 +39,7 @@ function Header() {
                 <img
                   src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=undefined&amp;q=75"
                   alt="hamberger menu"
-                  width="17px"
-                  height="14px"
-                  objectFit="contain"
+                  className="hambergerMenu"
                 />
               </button>
               <div className="headerNavTitle">

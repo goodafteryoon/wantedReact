@@ -140,3 +140,8 @@
     }
   }
 }
+.hambergerMenu {
+  width: 17px;
+  height: 14px;
+  object-fit: contain;
+}
